@@ -64,22 +64,22 @@
             opacity: 1;
         }
 
-        .case-link {
+        .styled-link {
             display: inline-flex;
             align-items: center;
-            color: #ffffff;
+            color: #AEAEAE;
             font-weight: 500;
             transition: color 0.3s;
             font-size: 18px;
         }
-        .case-link:hover {
-            color: #AEAEAE;
+        .styled-link:hover {
+            color: #ffffff;
         }
-        .case-link svg {
+        .styled-link svg {
             transition: transform 0.3s;
             margin-left: 8px;
         }
-        .case-link:hover svg {
+        .styled-link:hover svg {
             transform: translateX(4px);
         }
 
@@ -175,19 +175,19 @@
         <section class="relative overflow-hidden">
             <div class="max-w-7xl mx-auto">
                 <div class="flex flex-col md:flex-row min-h-screen">
-                    <div class="w-full md:w-1/2 flex items-center justify-center py-24 md:py-32 px-4 sm:px-6 lg:px-8">
-                        <div class="max-w-[500px]">
+                    <div class="w-full md:w-1/2 flex flex-col justify-between py-10 px-4 sm:px-6 lg:px-8">
+                        <nav>
+                            <div class="flex items-center space-x-10">
+                                <a href="#solutions" class="text-gray-400 hover:text-white transition text-lg">Решения</a>
+                                <a href="#cases" class="text-gray-400 hover:text-white transition text-lg">Кейсы</a>
+                                <a href="#contact" class="text-gray-400 hover:text-white transition text-lg">Контакты</a>
+                            </div>
+                        </nav>
+                        <div class="max-w-[500px] pb-10">
                             <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/f66bcfaa0d90ac967267bccc7b5f04d79dd87ca7/logo.svg" alt="SCULPT Logo" class="h-[55px] mb-[50px] svg-logo">
                             <p class="hero-text font-light">
                                 Проектируем AI-системы, которые приносят в бизнес-процессы ясность и скорость. Чтобы ваша команда принимала верные решения и быстрее создавала отличные продукты.
                             </p>
-                             <nav class="mt-12">
-                                <div class="flex items-center space-x-10">
-                                    <a href="#solutions" class="text-gray-400 hover:text-white transition text-lg">Решения</a>
-                                    <a href="#cases" class="text-gray-400 hover:text-white transition text-lg">Кейсы</a>
-                                    <a href="#contact" class="text-gray-400 hover:text-white transition text-lg">Контакты</a>
-                                </div>
-                            </nav>
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 min-h-[400px] md:min-h-full">
@@ -213,7 +213,7 @@
                             <h3 class="font-serif-header" style="font-size: 28px;">AI-система проверки на соответствие дизайн-системе для Авито</h3>
                             <p class="mt-[18px]">Сократили цикл дизайн-ревью в Авито с 3 дней до 15 минут.</p>
                         </div>
-                        <div class="details-link absolute bottom-10 right-10 case-link">
+                        <div class="details-link absolute bottom-10 right-10 styled-link">
                             Читать кейс подробнее
                         </div>
                     </div>
@@ -373,11 +373,11 @@
                         Бесплатный 30-минутный созвон, где мы покажем наши кейсы, и вместе разберем один из ваших текущих процессов — например, дизайн-ревью или создание контента. Найдем узкие места и дадим 2-3 конкретные рекомендации по их оптимизации. Уйдете с первыми шагами для дорожной карты.
                     </p>
                     <div class="mt-12 flex flex-col sm:flex-row gap-8">
-                        <a href="https://calendar.app.google/K4pxXiDKioBSA6gp8" target="_blank" class="case-link text-lg">
+                        <a href="https://calendar.app.google/K4pxXiDKioBSA6gp8" target="_blank" class="styled-link text-lg">
                             Выбрать время в календаре
                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </a>
-                        <a href="https://t.me/darikamouse" target="_blank" class="case-link text-lg">
+                        <a href="https://t.me/darikamouse" target="_blank" class="styled-link text-lg">
                             Написать в телеграм
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </a>
