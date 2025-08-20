@@ -17,10 +17,11 @@
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="relative overflow-hidden">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col md:flex-row min-h-screen">
-                    <div class="w-full md:w-1/2 flex flex-col justify-between py-10 px-4 sm:px-6 lg:px-8">
+        <section class="relative min-h-screen">
+            <!-- Left content column, constrained -->
+            <div class="relative z-10 max-w-7xl mx-auto">
+                <div class="flex">
+                    <div class="w-full md:w-1/2 flex flex-col justify-between py-10 px-4 sm:px-6 lg:px-8 min-h-screen">
                         <nav>
                             <div class="flex items-center space-x-10">
                                 <a href="#solutions" class="text-gray-400 hover:text-white transition text-lg">Решения</a>
@@ -35,12 +36,14 @@
                             </p>
                         </div>
                     </div>
-                    <div class="w-full md:w-1/2 min-h-[400px] md:min-h-full">
-                        <div class="animation-container">
-                            <canvas id="background-canvas"></canvas>
-                            <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/f66bcfaa0d90ac967267bccc7b5f04d79dd87ca7/logo-part.svg" alt="SCULPT Element" class="blueprint-logo-shape svg-logo">
-                        </div>
-                    </div>
+                </div>
+            </div>
+
+            <!-- Right animation column, full bleed -->
+            <div class="absolute top-0 right-0 h-full w-full md:w-1/2 z-0">
+                <div class="animation-container">
+                    <canvas id="background-canvas"></canvas>
+                    <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/f66bcfaa0d90ac967267bccc7b5f04d79dd87ca7/logo-part.svg" alt="SCULPT Element" class="blueprint-logo-shape svg-logo">
                 </div>
             </div>
         </section>
