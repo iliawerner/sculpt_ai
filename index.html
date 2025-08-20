@@ -127,43 +127,16 @@
             }
         }
 
-        /* Format Tags & Tooltips */
-        .format-tag {
+        /* Format Chips */
+        .format-chip {
             display: inline-block;
-            position: relative;
-            border-bottom: 1px dotted rgba(255,255,255,0.4);
-            cursor: help;
-            color: #9CA3AF;
-            transition: color 0.3s;
-            margin-right: 4px;
-        }
-        .format-tag:hover {
+            padding: 4px 10px;
+            background-color: #313131;
             color: #ffffff;
-        }
-        .format-tag::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #1f2937; /* gray-800 */
-            color: #fff;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 0.875rem; /* 14px */
-            line-height: 1.25rem; /* 20px */
-            font-weight: 400;
-            width: 280px;
-            text-align: left;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-            z-index: 10;
-            pointer-events: none;
-        }
-        .format-tag:hover::after {
-            opacity: 1;
-            visibility: visible;
+            font-size: 14px;
+            border-radius: 9999px;
+            margin-right: 8px;
+            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -209,7 +182,7 @@
                 
                 <!-- Main Case Card -->
                 <div class="case-card case-card--interactive" style="max-width: 1020px; height: 334px; background-image: url(https://raw.githubusercontent.com/iliawerner/sculpt_ai/18dc3091c0bf559d7a27b233b8777af13bc7c3ee/avito_case.svg); background-size: contain; background-repeat: no-repeat; background-position: center;">
-                    <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/3394583aabab61c4ae030bd4ee819e9b399d8938/avito_case_comment.png" alt="Avito Case Comment" class="absolute" style="top: 80px; right: 250px; width: 25px; height: 32px;">
+                    <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/3394583aabab61c4ae030bd4ee819e9b399d8938/avito_case_comment.png" alt="Avito Case Comment" class="absolute" style="top: 80px; right: 250px; width: 32px; height: 25px;">
                     <div class="p-10 h-full flex flex-col justify-end relative">
                         <div>
                             <h3 class="font-serif-header" style="font-size: 28px;">AI-система проверки на соответствие дизайн-системе для Авито</h3>
@@ -251,64 +224,76 @@
                 <div class="text-center">
                     <h2>AI-решения</h2>
                 </div>
-                <div class="mt-24 grid gap-16 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="card">
-                        <h3 class="font-serif-header" style="font-size: 28pt;">Автоматизация арт-дирекшена и ревью</h3>
-                        <p class="mt-[18px]">Снимаем рутину с ваших самых дорогих специалистов. Наш AI-пайплайн автоматически проверит дизайн на соответствие гайдлайнам, бизнес-задачам и эвристикам, освобождая часы сеньоров для более важных задач.</p>
-                        <div class="mt-6 text-base text-gray-500">Форматы: 
-                            <span class="format-tag" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>, 
-                            <span class="format-tag" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей. Мы не просто учим, а доводим до первого ощутимого результата.">Внедрение</span>, 
-                            <span class="format-tag" data-tooltip="Решение «под ключ». Мы полностью берем на себя создание и интеграцию AI-решения в ваши процессы (например, Figma-плагин).">Автоматизация</span>, 
-                            <span class="format-tag" data-tooltip="Постоянное усиление. Предоставляем нашу экспертизу на постоянной основе. Вы получаете не просто сотрудника, а гибкий внешний AI-отдел.">Поддержка</span>,
-                            <span class="format-tag" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
+                <div class="mt-24 grid gap-8 md:grid-cols-2">
+                    <div class="case-card p-8">
+                        <div class="pt-8">
+                            <h3 class="font-serif-header" style="font-size: 28px;">Автоматизация арт-дирекшена и ревью</h3>
+                            <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Снимаем рутину с ваших самых дорогих специалистов. Наш AI-пайплайн автоматически проверит дизайн на соответствие гайдлайнам, бизнес-задачам и эвристикам, освобождая часы сеньоров для более важных задач.</p>
+                            <div class="mt-6 flex flex-wrap">
+                                <span class="format-chip">Обучение</span>
+                                <span class="format-chip">Внедрение</span>
+                                <span class="format-chip">Автоматизация</span>
+                                <span class="format-chip">Поддержка</span>
+                                <span class="format-chip">Инфраструктура</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <h3 class="font-serif-header" style="font-size: 28pt;">Глубинное исследование пользователей с AI</h3>
-                        <p class="mt-[18px]">Находим неочевидные инсайты, которые двигают продукт. Проводим и анализируем сотни AI-интервью, чтобы вы получили полную карту болей и потребностей вашей аудитории за дни, а не месяцы.</p>
-                        <div class="mt-6 text-base text-gray-500">Форматы: 
-                            <span class="format-tag" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей. Мы не просто учим, а доводим до первого ощутимого результата.">Внедрение</span>, 
-                            <span class="format-tag" data-tooltip="Решение «под ключ». Мы полностью берем на себя создание и интеграцию AI-решения в ваши процессы.">Автоматизация</span>,
-                            <span class="format-tag" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
+                    <div class="case-card p-8">
+                        <div class="pt-8">
+                            <h3 class="font-serif-header" style="font-size: 28px;">Глубинное исследование пользователей с AI</h3>
+                            <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Находим неочевидные инсайты, которые двигают продукт. Проводим и анализируем сотни AI-интервью, чтобы вы получили полную карту болей и потребностей вашей аудитории за дни, а не месяцы.</p>
+                             <div class="mt-6 flex flex-wrap">
+                                <span class="format-chip">Внедрение</span>
+                                <span class="format-chip">Автоматизация</span>
+                                <span class="format-chip">Инфраструктура</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <h3 class="font-serif-header" style="font-size: 28pt;">Стратегическое планирование с AI</h3>
-                        <p class="mt-[18px]">Используем AI для анализа трендов, прогнозирования сценариев и выработки стратегии, основанной на данных. Обгоняйте конкурентов, принимая решения быстрее и точнее.</p>
-                        <div class="mt-6 text-base text-gray-500">Форматы: 
-                            <span class="format-tag" data-tooltip="Точка входа. Проанализируем ваши текущие процессы, найдем узкие места и точки роста, где AI даст максимальный экономический эффект.">Аудит</span>, 
-                            <span class="format-tag" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>, 
-                            <span class="format-tag" data-tooltip="Постоянное усиление. Предоставляем нашу экспертизу на постоянной основе.">Поддержка</span>,
-                            <span class="format-tag" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
+                    <div class="case-card p-8">
+                        <div class="pt-8">
+                            <h3 class="font-serif-header" style="font-size: 28px;">Стратегическое планирование с AI</h3>
+                            <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Используем AI для анализа трендов, прогнозирования сценариев и выработки стратегии, основанной на данных. Обгоняйте конкурентов, принимая решения быстрее и точнее.</p>
+                             <div class="mt-6 flex flex-wrap">
+                                <span class="format-chip">Аудит</span>
+                                <span class="format-chip">Внедрение</span>
+                                <span class="format-chip">Поддержка</span>
+                                <span class="format-chip">Инфраструктура</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <h3 class="font-serif-header" style="font-size: 28pt;">AI-ментор для дизайн-команды</h3>
-                        <p class="mt-[18px]">AI-ментор берет на себя оценку навыков, формирует персональные планы развития и помогает младшим специалистам расти быстрее. Вы получаете масштабируемую систему онбординга и экономите самое ценное — время ключевых сотрудников.</p>
-                        <div class="mt-6 text-base text-gray-500">Форматы: 
-                            <span class="format-tag" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>, 
-                            <span class="format-tag" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>, 
-                            <span class="format-tag" data-tooltip="Решение «под ключ». Мы полностью берем на себя создание и интеграцию AI-решения в ваши процессы.">Автоматизация</span>,
-                            <span class="format-tag" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
+                    <div class="case-card p-8">
+                        <div class="pt-8">
+                            <h3 class="font-serif-header" style="font-size: 28px;">AI-ментор для дизайн-команды</h3>
+                            <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">AI-ментор берет на себя оценку навыков, формирует персональные планы развития и помогает младшим специалистам расти быстрее. Вы получаете масштабируемую систему онбординга и экономите самое ценное — время ключевых сотрудников.</p>
+                             <div class="mt-6 flex flex-wrap">
+                                <span class="format-chip">Обучение</span>
+                                <span class="format-chip">Внедрение</span>
+                                <span class="format-chip">Автоматизация</span>
+                                <span class="format-chip">Инфраструктура</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <h3 class="font-serif-header" style="font-size: 28pt;">Продакшен-ready графика с Generative AI</h3>
-                        <p class="mt-[18px]">Научим команду создавать соответствующие бренду, консистентны, готовые к продакшену изображения и видеокреативы. Рекламных баннера, креативы, печатка, иллюстрации, контент для соцсетей. В среднем выходит на 70% быстрее и без потерь в качестве.</p>
-                        <div class="mt-6 text-base text-gray-500">Форматы: 
-                           <span class="format-tag" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>, 
-                           <span class="format-tag" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>,
-                           <span class="format-tag" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
+                    <div class="case-card p-8">
+                        <div class="pt-8">
+                            <h3 class="font-serif-header" style="font-size: 28px;">Продакшен-ready графика с Generative AI</h3>
+                            <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Научим команду создавать соответствующие бренду, консистентны, готовые к продакшену изображения и видеокреативы. Рекламных баннера, креативы, печатка, иллюстрации, контент для соцсетей. В среднем выходит на 70% быстрее и без потерь в качестве.</p>
+                             <div class="mt-6 flex flex-wrap">
+                                <span class="format-chip">Обучение</span>
+                                <span class="format-chip">Внедрение</span>
+                                <span class="format-chip">Инфраструктура</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <h3 class="font-serif-header" style="font-size: 28pt;">AI-контент-машина для SMM</h3>
-                        <p class="mt-[18px]">Предсказуемую система inhouse SMM для больших охватов. Наш подход позволяет с помощью AI анализировать тренды, писать вовлекающие тексты и генерировать визуальный контент для LinkedIn, X и других соцсетей.</p>
-                        <div class="mt-6 text-base text-gray-500">Форматы: 
-                            <span class="format-tag" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>, 
-                            <span class="format-tag" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>, 
-                            <span class="format-tag" data-tooltip="Постоянное усиление. Предоставляем нашу экспертизу на постоянной основе.">Поддержка</span>,
-                            <span class="format-tag" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
+                    <div class="case-card p-8">
+                        <div class="pt-8">
+                            <h3 class="font-serif-header" style="font-size: 28px;">AI-контент-машина для SMM</h3>
+                            <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Предсказуемую система inhouse SMM для больших охватов. Наш подход позволяет с помощью AI анализировать тренды, писать вовлекающие тексты и генерировать визуальный контент для LinkedIn, X и других соцсетей.</p>
+                             <div class="mt-6 flex flex-wrap">
+                                <span class="format-chip">Обучение</span>
+                                <span class="format-chip">Внедрение</span>
+                                <span class="format-chip">Поддержка</span>
+                                <span class="format-chip">Инфраструктура</span>
+                            </div>
                         </div>
                     </div>
                 </div>
