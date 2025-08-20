@@ -1,1 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCULPT — Проектируем AI-системы</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background-color: #000000;
+            color: #E5E7EB;
+        }
+        /* Unified text styles */
+        h2 {
+            font-size: 2.25rem; /* 36px */
+            line-height: 2.5rem; /* 40px */
+            font-weight: 500;
+            letter-spacing: -0.025em;
+        }
+        h3 {
+            font-size: 1.25rem; /* 20px */
+            line-height: 1.75rem; /* 28px */
+            font-weight: 500;
+        }
+        p {
+            font-size: 1.125rem; /* 18px */
+            line-height: 1.75rem; /* 28px */
+            color: #9CA3AF; /* gray-400 */
+        }
+        .card {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+        }
+        .case-link {
+            display: inline-flex;
+            align-items: center;
+            color: #ffffff;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1.125rem; /* 18px */
+        }
+        .case-link:hover {
+            color: #9CA3AF;
+        }
+        .case-link svg {
+            transition: transform 0.3s;
+            margin-left: 8px;
+        }
+        .case-link:hover svg {
+            transform: translateX(4px);
+        }
 
+        /* SVG color fix */
+        .svg-logo {
+            filter: brightness(0) invert(1);
+        }
+
+        /* Blueprint grid effect styles */
+        .blueprint-container {
+            position: relative;
+            overflow: hidden;
+            background-color: #000;
+            width: 100%;
+            height: 100%;
+        }
+        .blueprint-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: blueprint-scroll 20s linear infinite;
+            z-index: 1;
+        }
+        .blueprint-logo-shape {
+            position: absolute;
+            top: 0;
+            left: 0; /* Aligned to the left edge */
+            width: auto;
+            height: 100%;
+            z-index: 2; /* On top of animation */
+        }
+
+        @keyframes blueprint-scroll {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="relative overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row min-h-screen">
+                    <div class="w-full md:w-1/2 flex items-center justify-center py-24 md:py-32 px-4 sm:px-6 lg:px-8">
+                        <div class="max-w-[500px]">
+                            <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/f66bcfaa0d90ac967267bccc7b5f04d79dd87ca7/logo.svg" alt="SCULPT Logo" class="h-[55px] mb-[50px] svg-logo">
+                            <p class="text-[16pt] leading-snug font-light text-gray-300">
+                                Проектируем AI-системы, которые приносят в бизнес-процессы ясность и скорость. Чтобы ваша команда принимала верные решения и быстрее создавала отличные продукты.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 min-h-[400px] md:min-h-full">
+                        <div class="blueprint-container">
+                            <div class="blueprint-grid"></div>
+                            <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/f66bcfaa0d90ac967267bccc7b5f04d79dd87ca7/logo-part.svg" alt="SCULPT Element" class="blueprint-logo-shape svg-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Links -->
+        <nav class="py-10 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto flex justify-center items-center space-x-10">
+                <a href="#solutions" class="text-gray-400 hover:text-white transition text-lg">Решения</a>
+                <a href="#cases" class="text-gray-400 hover:text-white transition text-lg">Кейсы</a>
+                <a href="#contact" class="text-gray-400 hover:text-white transition text-lg">Контакты</a>
+            </div>
+        </nav>
+
+        <!-- Featured Case -->
+        <section id="cases" class="py-32 md:py-40">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2>Как мы сократили цикл дизайн-ревью в Авито с 3 дней до 15 минут</h2>
+                    <p class="mt-6 max-w-3xl mx-auto">AI-система проверки на соответствие дизайн-системе.</p>
+                    <div class="mt-10">
+                        <a href="#" class="case-link">
+                            Читать кейс подробнее
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Other Cases -->
+        <section class="py-16 md:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-3 gap-16">
+                    <div class="card">
+                        <h3>Студия DELO</h3>
+                        <p class="mt-2">Производство графики на 70% быстрее → рост пропускной способности команды без расширения штата.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Яндекс.Браузер</h3>
+                        <p class="mt-2">Запуск сайтов для тестов гипотез в 12 раз быстрее: с 4 часов до 20 минут.</p>
+                    </div>
+                    <div class="card">
+                        <h3>AI-контент (YouTube)</h3>
+                        <p class="mt-2">Создали контент-машину на AI, которая сгенерировала 1.5 млн просмотров.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Solutions -->
+        <section id="solutions" class="py-32 md:py-40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2>AI-решения</h2>
+                </div>
+                <div class="mt-24 grid gap-16 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="card">
+                        <h3>Автоматизация арт-дирекшена и ревью</h3>
+                        <p class="mt-4">Снимаем рутину с ваших самых дорогих специалистов. Наш AI-пайплайн автоматически проверит дизайн на соответствие гайдлайнам, бизнес-задачам и эвристикам, освобождая часы сеньоров для более важных задач.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Глубинное исследование пользователей с AI</h3>
+                        <p class="mt-4">Находим неочевидные инсайты, которые двигают продукт. Проводим и анализируем сотни AI-интервью, чтобы вы получили полную карту болей и потребностей вашей аудитории за дни, а не месяцы.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Стратегическое планирование с AI</h3>
+                        <p class="mt-4">Используем AI для анализа трендов, прогнозирования сценариев и выработки стратегии, основанной на данных. Обгоняйте конкурентов, принимая решения быстрее и точнее.</p>
+                    </div>
+                    <div class="card">
+                        <h3>AI-ментор для дизайн-команды</h3>
+                        <p class="mt-4">AI-ментор берет на себя оценку навыков, формирует персональные планы развития и помогает младшим специалистам расти быстрее. Вы получаете масштабируемую систему онбординга и экономите самое ценное — время ключевых сотрудников.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Продакшен-ready графика с Generative AI</h3>
+                        <p class="mt-4">Научим команду создавать соответствующие бренду, консистентны, готовые к продакшену изображения и видеокреативы. Рекламных баннера, креативы, печатка, иллюстрации, контент для соцсетей. В среднем выходит на 70% быстрее и без потерь в качестве.</p>
+                    </div>
+                    <div class="card">
+                        <h3>AI-контент-машина для SMM</h3>
+                        <p class="mt-4">Предсказуемую система inhouse SMM для больших охватов. Наш подход позволяет с помощью AI анализировать тренды, писать вовлекающие тексты и генерировать визуальный контент для LinkedIn, X и других соцсетей.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-32 md:py-40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid gap-16 lg:grid-cols-3">
+                    <div class="card">
+                        <blockquote class="text-xl text-white">«Очень ценно, когда есть эксперты, способные провести через сложную тему и показать короткий путь. SCULPT помогли нам не проходить весь путь проб и ошибок самостоятельно, а сразу сфокусироваться на работающих инструментах».</blockquote>
+                        <footer class="mt-8">
+                            <p class="text-base text-white font-medium">Нива Фарши</p>
+                            <p class="text-base text-gray-500">Head of Design Guild & Brand Director @ Wix</p>
+                        </footer>
+                    </div>
+                    <div class="card">
+                        <blockquote class="text-xl text-white">«Главное в работе со SCULPT — это надежность. Я могу быть уверена, что задача будет не просто выполнена, а сделана с глубоким погружением в наш контекст. Это тот уровень партнерства, который позволяет делегировать сложные участки и не беспокоиться о результате».</blockquote>
+                        <footer class="mt-8">
+                            <p class="text-base text-white font-medium">Ксения Гаврилова</p>
+                            <p class="text-base text-gray-500">Design Lead @ Avito Avto</p>
+                        </footer>
+                    </div>
+                    <div class="card">
+                        <blockquote class="text-xl text-white">«Воркшоп со SCULPT — это не обзорный рассказ про AI, а концентрированная экспертиза. Ребята глубоко понимают не только сами инструменты, но и то, как они встраиваются в реальные дизайн-процессы. Любой вопрос разбирается детально и по существу».</blockquote>
+                        <footer class="mt-8">
+                            <p class="text-base text-white font-medium">Саша Мальцев</p>
+                            <p class="text-base text-gray-500">Design Lead @ Yandex Browser</p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="contact" class="py-32 md:py-40">
+            <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                <h2>Покажем, где AI даст максимальный экономический эффект</h2>
+                <p class="mt-6 text-lg">
+                    Бесплатный 30-минутный созвон, где мы покажем наши кейсы, и вместе разберем один из ваших текущих процессов — например, дизайн-ревью или создание контента. Найдем узкие места и дадим 2-3 конкретные рекомендации по их оптимизации. Уйдете с первыми шагами для дорожной карты.
+                </p>
+                <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#" class="bg-white text-black font-semibold py-3 px-8 rounded-lg hover:bg-gray-300 transition text-lg">
+                        Выбрать время в календаре
+                    </a>
+                    <a href="#" class="bg-gray-800 text-white font-semibold py-3 px-8 rounded-lg hover:bg-gray-700 transition text-lg">
+                        Написать в телеграм
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200/10">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="flex justify-center space-x-6 md:order-2">
+                    <a href="#solutions" class="text-gray-400 hover:text-gray-300">Решения</a>
+                    <a href="#cases" class="text-gray-400 hover:text-gray-300">Кейсы</a>
+                    <a href="mailto:hello@sculpt.ai" class="text-gray-400 hover:text-gray-300">Контакты</a>
+                </div>
+                <div class="mt-8 md:mt-0 md:order-1">
+                    <a href="mailto:hello@sculpt.ai" class="text-center block text-base text-gray-400 hover:text-gray-300">hello@sculpt.ai</a>
+                </div>
+            </div>
+            <div class="mt-12 pt-12 border-t border-gray-200/10 text-center text-sm text-gray-500 space-y-2">
+                <p>Для клиентов из РФ: ИП Камышина Т. В. (ИНН xxxxxxxxx)</p>
+                <p>Для международных клиентов: DELO STUDIO LTD (UK)</p>
+                <p class="pt-4">&copy; SCULPT, 2025. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
