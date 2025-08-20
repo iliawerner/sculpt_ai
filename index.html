@@ -17,9 +17,10 @@
         
         .font-serif-header {
             font-family: 'IBM Plex Serif', serif;
-            font-size: 28pt; /* Corresponds to roughly 37.33px */
+            font-size: 28pt;
             line-height: 1.2;
             font-weight: 500;
+            color: #ffffff;
         }
 
         /* Unified text styles */
@@ -34,26 +35,41 @@
             line-height: 1.75rem; /* 28px */
             font-weight: 500;
         }
-        p {
-            font-size: 1.125rem; /* 18px */
+        p, .hero-text {
+            font-size: 18px;
             line-height: 1.75rem; /* 28px */
-            color: #9CA3AF; /* gray-400 */
+            color: #AEAEAE;
         }
-        .card {
-            background-color: transparent;
-            border: none;
-            padding: 0;
+        
+        .case-card {
+            background-color: #0F0F0F;
+            border-radius: 16px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
+        .case-card:hover {
+            transform: translateY(-8px);
+            background-color: #1a1a1a;
+        }
+        .case-card .details-link {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .case-card:hover .details-link {
+            opacity: 1;
+        }
+
         .case-link {
             display: inline-flex;
             align-items: center;
             color: #ffffff;
             font-weight: 500;
             transition: color 0.3s;
-            font-size: 1.125rem; /* 18px */
+            font-size: 18px;
         }
         .case-link:hover {
-            color: #9CA3AF;
+            color: #AEAEAE;
         }
         .case-link svg {
             transition: transform 0.3s;
@@ -158,7 +174,7 @@
                     <div class="w-full md:w-1/2 flex items-center justify-center py-24 md:py-32 px-4 sm:px-6 lg:px-8">
                         <div class="max-w-[500px]">
                             <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/f66bcfaa0d90ac967267bccc7b5f04d79dd87ca7/logo.svg" alt="SCULPT Logo" class="h-[55px] mb-[50px] svg-logo">
-                            <p class="text-[16pt] leading-snug font-light text-gray-300">
+                            <p class="hero-text font-light">
                                 Проектируем AI-системы, которые приносят в бизнес-процессы ясность и скорость. Чтобы ваша команда принимала верные решения и быстрее создавала отличные продукты.
                             </p>
                         </div>
@@ -182,42 +198,42 @@
             </div>
         </nav>
 
-        <!-- Featured Case -->
+        <!-- Cases Section -->
         <section id="cases" class="py-32 md:py-40">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
-                    <h2 class="font-serif-header">Как мы сократили цикл дизайн-ревью в Авито с 3 дней до 15 минут</h2>
-                    <p class="mt-6 max-w-3xl mx-auto">AI-система проверки на соответствие дизайн-системе.</p>
-                    <div class="mt-10">
-                        <a href="#" class="case-link">
+            <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-center mb-16">Кейсы</h2>
+                
+                <!-- Main Case Card -->
+                <div class="case-card" style="max-width: 1020px; height: 334px;">
+                    <div class="p-10 h-full flex flex-col justify-end relative">
+                        <div>
+                            <h3 class="font-serif-header">AI-система проверки на соответствие дизайн-системе для Авито</h3>
+                            <p class="mt-[18px]">Сократили цикл дизайн-ревью в Авито с 3 дней до 15 минут.</p>
+                        </div>
+                        <a href="#" class="details-link absolute bottom-10 right-10 case-link">
                             Читать кейс подробнее
-                            <svg width="24" height="24" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </a>
+                    </div>
+                </div>
+
+                <!-- Other Cases Grid -->
+                <div class="grid md:grid-cols-3 gap-8 mt-8">
+                    <div class="case-card p-8 flex flex-col justify-end" style="height: 250px;">
+                        <h3 class="font-serif-header" style="font-size: 24pt;">Студия DELO</h3>
+                        <p class="mt-[18px]">Производство графики на 70% быстрее → рост пропускной способности команды без расширения штата.</p>
+                    </div>
+                    <div class="case-card p-8 flex flex-col justify-end" style="height: 250px;">
+                        <h3 class="font-serif-header" style="font-size: 24pt;">Яндекс.Браузер</h3>
+                        <p class="mt-[18px]">Запуск сайтов для тестов гипотез в 12 раз быстрее: с 4 часов до 20 минут.</p>
+                    </div>
+                    <div class="case-card p-8 flex flex-col justify-end" style="height: 250px;">
+                        <h3 class="font-serif-header" style="font-size: 24pt;">AI-контент (YouTube)</h3>
+                        <p class="mt-[18px]">Создали контент-машину на AI, которая сгенерировала 1.5 млн просмотров.</p>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Other Cases -->
-        <section class="py-16 md:py-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid md:grid-cols-3 gap-16">
-                    <div class="card">
-                        <h3 class="font-serif-header" style="font-size: 28pt;">Студия DELO</h3>
-                        <p class="mt-2">Производство графики на 70% быстрее → рост пропускной способности команды без расширения штата.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="font-serif-header" style="font-size: 28pt;">Яндекс.Браузер</h3>
-                        <p class="mt-2">Запуск сайтов для тестов гипотез в 12 раз быстрее: с 4 часов до 20 минут.</p>
-                    </div>
-                    <div class="card">
-                        <h3 class="font-serif-header" style="font-size: 28pt;">AI-контент (YouTube)</h3>
-                        <p class="mt-2">Создали контент-машину на AI, которая сгенерировала 1.5 млн просмотров.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- AI Solutions -->
         <section id="solutions" class="py-32 md:py-40">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -227,7 +243,7 @@
                 <div class="mt-24 grid gap-16 md:grid-cols-2 lg:grid-cols-3">
                     <div class="card">
                         <h3 class="font-serif-header" style="font-size: 28pt;">Автоматизация арт-дирекшена и ревью</h3>
-                        <p class="mt-4">Снимаем рутину с ваших самых дорогих специалистов. Наш AI-пайплайн автоматически проверит дизайн на соответствие гайдлайнам, бизнес-задачам и эвристикам, освобождая часы сеньоров для более важных задач.</p>
+                        <p class="mt-[18px]">Снимаем рутину с ваших самых дорогих специалистов. Наш AI-пайплайн автоматически проверит дизайн на соответствие гайдлайнам, бизнес-задачам и эвристикам, освобождая часы сеньоров для более важных задач.</p>
                         <div class="mt-6 text-base text-gray-500">Форматы: 
                             <span class="format-tag" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>, 
                             <span class="format-tag" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей. Мы не просто учим, а доводим до первого ощутимого результата.">Внедрение</span>, 
@@ -238,7 +254,7 @@
                     </div>
                     <div class="card">
                         <h3 class="font-serif-header" style="font-size: 28pt;">Глубинное исследование пользователей с AI</h3>
-                        <p class="mt-4">Находим неочевидные инсайты, которые двигают продукт. Проводим и анализируем сотни AI-интервью, чтобы вы получили полную карту болей и потребностей вашей аудитории за дни, а не месяцы.</p>
+                        <p class="mt-[18px]">Находим неочевидные инсайты, которые двигают продукт. Проводим и анализируем сотни AI-интервью, чтобы вы получили полную карту болей и потребностей вашей аудитории за дни, а не месяцы.</p>
                         <div class="mt-6 text-base text-gray-500">Форматы: 
                             <span class="format-tag" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей. Мы не просто учим, а доводим до первого ощутимого результата.">Внедрение</span>, 
                             <span class="format-tag" data-tooltip="Решение «под ключ». Мы полностью берем на себя создание и интеграцию AI-решения в ваши процессы.">Автоматизация</span>,
@@ -247,7 +263,7 @@
                     </div>
                     <div class="card">
                         <h3 class="font-serif-header" style="font-size: 28pt;">Стратегическое планирование с AI</h3>
-                        <p class="mt-4">Используем AI для анализа трендов, прогнозирования сценариев и выработки стратегии, основанной на данных. Обгоняйте конкурентов, принимая решения быстрее и точнее.</p>
+                        <p class="mt-[18px]">Используем AI для анализа трендов, прогнозирования сценариев и выработки стратегии, основанной на данных. Обгоняйте конкурентов, принимая решения быстрее и точнее.</p>
                         <div class="mt-6 text-base text-gray-500">Форматы: 
                             <span class="format-tag" data-tooltip="Точка входа. Проанализируем ваши текущие процессы, найдем узкие места и точки роста, где AI даст максимальный экономический эффект.">Аудит</span>, 
                             <span class="format-tag" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>, 
@@ -257,7 +273,7 @@
                     </div>
                     <div class="card">
                         <h3 class="font-serif-header" style="font-size: 28pt;">AI-ментор для дизайн-команды</h3>
-                        <p class="mt-4">AI-ментор берет на себя оценку навыков, формирует персональные планы развития и помогает младшим специалистам расти быстрее. Вы получаете масштабируемую систему онбординга и экономите самое ценное — время ключевых сотрудников.</p>
+                        <p class="mt-[18px]">AI-ментор берет на себя оценку навыков, формирует персональные планы развития и помогает младшим специалистам расти быстрее. Вы получаете масштабируемую систему онбординга и экономите самое ценное — время ключевых сотрудников.</p>
                         <div class="mt-6 text-base text-gray-500">Форматы: 
                             <span class="format-tag" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>, 
                             <span class="format-tag" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>, 
@@ -267,7 +283,7 @@
                     </div>
                     <div class="card">
                         <h3 class="font-serif-header" style="font-size: 28pt;">Продакшен-ready графика с Generative AI</h3>
-                        <p class="mt-4">Научим команду создавать соответствующие бренду, консистентны, готовые к продакшену изображения и видеокреативы. Рекламных баннера, креативы, печатка, иллюстрации, контент для соцсетей. В среднем выходит на 70% быстрее и без потерь в качестве.</p>
+                        <p class="mt-[18px]">Научим команду создавать соответствующие бренду, консистентны, готовые к продакшену изображения и видеокреативы. Рекламных баннера, креативы, печатка, иллюстрации, контент для соцсетей. В среднем выходит на 70% быстрее и без потерь в качестве.</p>
                         <div class="mt-6 text-base text-gray-500">Форматы: 
                            <span class="format-tag" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>, 
                            <span class="format-tag" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>,
@@ -276,7 +292,7 @@
                     </div>
                     <div class="card">
                         <h3 class="font-serif-header" style="font-size: 28pt;">AI-контент-машина для SMM</h3>
-                        <p class="mt-4">Предсказуемую система inhouse SMM для больших охватов. Наш подход позволяет с помощью AI анализировать тренды, писать вовлекающие тексты и генерировать визуальный контент для LinkedIn, X и других соцсетей.</p>
+                        <p class="mt-[18px]">Предсказуемую система inhouse SMM для больших охватов. Наш подход позволяет с помощью AI анализировать тренды, писать вовлекающие тексты и генерировать визуальный контент для LinkedIn, X и других соцсетей.</p>
                         <div class="mt-6 text-base text-gray-500">Форматы: 
                             <span class="format-tag" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>, 
                             <span class="format-tag" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>, 
