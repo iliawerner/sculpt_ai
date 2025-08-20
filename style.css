@@ -91,46 +91,32 @@ p, .hero-text, .testimonial-text {
     filter: brightness(0) invert(1);
 }
 
-/* Blueprint Grid Effect */
-.blueprint-container {
+/* New WebGL Animation Container */
+.animation-container {
     position: relative;
-    overflow: hidden;
-    background-color: #000;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
-.blueprint-grid {
+#background-canvas {
     position: absolute;
     top: 0;
     left: 0;
-    width: 200%;
+    width: 100%;
     height: 100%;
-    background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 40px 40px;
-    animation: blueprint-scroll 20s linear infinite;
     z-index: 1;
 }
 
 .blueprint-logo-shape {
     position: absolute;
     top: 0;
-    left: 0; /* Aligned to the left edge */
+    left: 0;
     width: auto;
     height: 100%;
-    z-index: 2; /* On top of animation */
+    z-index: 2;
 }
 
-@keyframes blueprint-scroll {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
 
 /* Format Chips & Tooltips */
 .format-chip {
