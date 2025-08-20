@@ -45,7 +45,7 @@
             background-color: #0F0F0F;
             border-radius: 16px;
             position: relative;
-            overflow: hidden;
+            /* overflow: hidden; Removed to allow tooltips to show */
         }
         
         .case-card--interactive {
@@ -146,7 +146,7 @@
             bottom: 125%;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #1f2937; /* gray-800 */
+            background-color: #111111; /* Darker grey for tooltip */
             color: #fff;
             padding: 8px 12px;
             border-radius: 6px;
@@ -158,7 +158,7 @@
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s, visibility 0.3s;
-            z-index: 10;
+            z-index: 50; /* High z-index to appear on top */
             pointer-events: none;
         }
         .format-chip:hover::after {
@@ -181,6 +181,13 @@
                             <p class="hero-text font-light">
                                 Проектируем AI-системы, которые приносят в бизнес-процессы ясность и скорость. Чтобы ваша команда принимала верные решения и быстрее создавала отличные продукты.
                             </p>
+                             <nav class="mt-12">
+                                <div class="flex items-center space-x-10">
+                                    <a href="#solutions" class="text-gray-400 hover:text-white transition text-lg">Решения</a>
+                                    <a href="#cases" class="text-gray-400 hover:text-white transition text-lg">Кейсы</a>
+                                    <a href="#contact" class="text-gray-400 hover:text-white transition text-lg">Контакты</a>
+                                </div>
+                            </nav>
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 min-h-[400px] md:min-h-full">
@@ -193,19 +200,10 @@
             </div>
         </section>
 
-        <!-- Navigation Links -->
-        <nav class="py-10 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-7xl mx-auto flex justify-center items-center space-x-10">
-                <a href="#solutions" class="text-gray-400 hover:text-white transition text-lg">Решения</a>
-                <a href="#cases" class="text-gray-400 hover:text-white transition text-lg">Кейсы</a>
-                <a href="#contact" class="text-gray-400 hover:text-white transition text-lg">Контакты</a>
-            </div>
-        </nav>
-
         <!-- Cases Section -->
         <section id="cases" class="py-32 md:py-40">
             <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-center mb-16">Кейсы</h2>
+                <h2 class="mb-16 text-left">Кейсы</h2>
                 
                 <!-- Main Case Card -->
                 <a href="cases/avito-artdir" class="block case-card case-card--interactive" style="max-width: 1020px; height: 334px; background-image: url(https://raw.githubusercontent.com/iliawerner/sculpt_ai/18dc3091c0bf559d7a27b233b8777af13bc7c3ee/avito_case.svg); background-size: contain; background-repeat: no-repeat; background-position: center;">
@@ -248,10 +246,10 @@
         <!-- AI Solutions -->
         <section id="solutions" class="py-32 md:py-40">
             <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
-                    <h2>AI-решения</h2>
+                <div class="text-left">
+                    <h2 class="mb-16">AI-решения</h2>
                 </div>
-                <div class="mt-24 grid gap-8 md:grid-cols-2">
+                <div class="grid gap-8 md:grid-cols-2">
                     <div class="case-card p-8">
                         <div class="pt-8">
                             <h3 class="font-serif-header" style="font-size: 28px;">Автоматизация арт-дирекшена и ревью</h3>
@@ -330,7 +328,7 @@
         <!-- Testimonials -->
         <section class="py-32 md:py-40">
             <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-center mb-16">Отзывы</h2>
+                <h2 class="text-left mb-16">Отзывы</h2>
                 <div class="grid gap-8 md:grid-cols-3">
                     <div class="case-card p-8">
                         <div class="flex items-center mb-4">
@@ -369,17 +367,19 @@
         <!-- CTA Section -->
         <section id="contact" class="py-32 md:py-40">
             <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="case-card text-center p-16">
+                <div class="case-card p-10">
                     <h2 class="font-serif-header">Покажем, где AI даст максимальный экономический эффект</h2>
-                    <p class="mt-6 text-lg max-w-3xl mx-auto">
+                    <p class="mt-6 text-lg max-w-3xl">
                         Бесплатный 30-минутный созвон, где мы покажем наши кейсы, и вместе разберем один из ваших текущих процессов — например, дизайн-ревью или создание контента. Найдем узкие места и дадим 2-3 конкретные рекомендации по их оптимизации. Уйдете с первыми шагами для дорожной карты.
                     </p>
-                    <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="https://calendar.app.google/K4pxXiDKioBSA6gp8" target="_blank" class="bg-white text-black font-semibold py-3 px-8 rounded-lg hover:bg-gray-300 transition text-lg">
+                    <div class="mt-12 flex flex-col sm:flex-row gap-8">
+                        <a href="https://calendar.app.google/K4pxXiDKioBSA6gp8" target="_blank" class="case-link text-lg">
                             Выбрать время в календаре
+                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </a>
-                        <a href="https://t.me/darikamouse" target="_blank" class="bg-gray-800 text-white font-semibold py-3 px-8 rounded-lg hover:bg-gray-700 transition text-lg">
+                        <a href="https://t.me/darikamouse" target="_blank" class="case-link text-lg">
                             Написать в телеграм
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </a>
                     </div>
                 </div>
