@@ -35,7 +35,7 @@
             line-height: 1.75rem; /* 28px */
             font-weight: 500;
         }
-        p, .hero-text {
+        p, .hero-text, .testimonial-text {
             font-size: 18px;
             line-height: 1.75rem; /* 28px */
             color: #AEAEAE;
@@ -127,9 +127,10 @@
             }
         }
 
-        /* Format Chips */
+        /* Format Chips & Tooltips */
         .format-chip {
             display: inline-block;
+            position: relative;
             padding: 4px 10px;
             background-color: #313131;
             color: #ffffff;
@@ -137,6 +138,32 @@
             border-radius: 6px;
             margin-right: 8px;
             margin-bottom: 8px;
+            cursor: help;
+        }
+        .format-chip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1f2937; /* gray-800 */
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.875rem; /* 14px */
+            line-height: 1.25rem; /* 20px */
+            font-weight: 400;
+            width: 280px;
+            text-align: left;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .format-chip:hover::after {
+            opacity: 1;
+            visibility: visible;
         }
     </style>
 </head>
@@ -230,11 +257,11 @@
                             <h3 class="font-serif-header" style="font-size: 28px;">Автоматизация арт-дирекшена и ревью</h3>
                             <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Снимаем рутину с ваших самых дорогих специалистов. Наш AI-пайплайн автоматически проверит дизайн на соответствие гайдлайнам, бизнес-задачам и эвристикам, освобождая часы сеньоров для более важных задач.</p>
                             <div class="mt-6 flex flex-wrap">
-                                <span class="format-chip">Обучение</span>
-                                <span class="format-chip">Внедрение</span>
-                                <span class="format-chip">Автоматизация</span>
-                                <span class="format-chip">Поддержка</span>
-                                <span class="format-chip">Инфраструктура</span>
+                                <span class="format-chip" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>
+                                <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей. Мы не просто учим, а доводим до первого ощутимого результата.">Внедрение</span>
+                                <span class="format-chip" data-tooltip="Решение «под ключ». Мы полностью берем на себя создание и интеграцию AI-решения в ваши процессы (например, Figma-плагин).">Автоматизация</span>
+                                <span class="format-chip" data-tooltip="Постоянное усиление. Предоставляем нашу экспертизу на постоянной основе. Вы получаете не просто сотрудника, а гибкий внешний AI-отдел.">Поддержка</span>
+                                <span class="format-chip" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
                             </div>
                         </div>
                     </div>
@@ -243,9 +270,9 @@
                             <h3 class="font-serif-header" style="font-size: 28px;">Глубинное исследование пользователей с AI</h3>
                             <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Находим неочевидные инсайты, которые двигают продукт. Проводим и анализируем сотни AI-интервью, чтобы вы получили полную карту болей и потребностей вашей аудитории за дни, а не месяцы.</p>
                              <div class="mt-6 flex flex-wrap">
-                                <span class="format-chip">Внедрение</span>
-                                <span class="format-chip">Автоматизация</span>
-                                <span class="format-chip">Инфраструктура</span>
+                                <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей. Мы не просто учим, а доводим до первого ощутимого результата.">Внедрение</span>
+                                <span class="format-chip" data-tooltip="Решение «под ключ». Мы полностью берем на себя создание и интеграцию AI-решения в ваши процессы.">Автоматизация</span>
+                                <span class="format-chip" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
                             </div>
                         </div>
                     </div>
@@ -254,10 +281,10 @@
                             <h3 class="font-serif-header" style="font-size: 28px;">Стратегическое планирование с AI</h3>
                             <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Используем AI для анализа трендов, прогнозирования сценариев и выработки стратегии, основанной на данных. Обгоняйте конкурентов, принимая решения быстрее и точнее.</p>
                              <div class="mt-6 flex flex-wrap">
-                                <span class="format-chip">Аудит</span>
-                                <span class="format-chip">Внедрение</span>
-                                <span class="format-chip">Поддержка</span>
-                                <span class="format-chip">Инфраструктура</span>
+                                <span class="format-chip" data-tooltip="Точка входа. Проанализируем ваши текущие процессы, найдем узкие места и точки роста, где AI даст максимальный экономический эффект.">Аудит</span>
+                                <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>
+                                <span class="format-chip" data-tooltip="Постоянное усиление. Предоставляем нашу экспертизу на постоянной основе.">Поддержка</span>
+                                <span class="format-chip" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
                             </div>
                         </div>
                     </div>
@@ -266,10 +293,10 @@
                             <h3 class="font-serif-header" style="font-size: 28px;">AI-ментор для дизайн-команды</h3>
                             <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">AI-ментор берет на себя оценку навыков, формирует персональные планы развития и помогает младшим специалистам расти быстрее. Вы получаете масштабируемую систему онбординга и экономите самое ценное — время ключевых сотрудников.</p>
                              <div class="mt-6 flex flex-wrap">
-                                <span class="format-chip">Обучение</span>
-                                <span class="format-chip">Внедрение</span>
-                                <span class="format-chip">Автоматизация</span>
-                                <span class="format-chip">Инфраструктура</span>
+                                <span class="format-chip" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>
+                                <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>
+                                <span class="format-chip" data-tooltip="Решение «под ключ». Мы полностью берем на себя создание и интеграцию AI-решения в ваши процессы.">Автоматизация</span>
+                                <span class="format-chip" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
                             </div>
                         </div>
                     </div>
@@ -278,9 +305,9 @@
                             <h3 class="font-serif-header" style="font-size: 28px;">Продакшен-ready графика с Generative AI</h3>
                             <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Научим команду создавать соответствующие бренду, консистентны, готовые к продакшену изображения и видеокреативы. Рекламных баннера, креативы, печатка, иллюстрации, контент для соцсетей. В среднем выходит на 70% быстрее и без потерь в качестве.</p>
                              <div class="mt-6 flex flex-wrap">
-                                <span class="format-chip">Обучение</span>
-                                <span class="format-chip">Внедрение</span>
-                                <span class="format-chip">Инфраструктура</span>
+                                <span class="format-chip" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>
+                                <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>
+                                <span class="format-chip" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
                             </div>
                         </div>
                     </div>
@@ -289,10 +316,10 @@
                             <h3 class="font-serif-header" style="font-size: 28px;">AI-контент-машина для SMM</h3>
                             <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Предсказуемую система inhouse SMM для больших охватов. Наш подход позволяет с помощью AI анализировать тренды, писать вовлекающие тексты и генерировать визуальный контент для LinkedIn, X и других соцсетей.</p>
                              <div class="mt-6 flex flex-wrap">
-                                <span class="format-chip">Обучение</span>
-                                <span class="format-chip">Внедрение</span>
-                                <span class="format-chip">Поддержка</span>
-                                <span class="format-chip">Инфраструктура</span>
+                                <span class="format-chip" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>
+                                <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>
+                                <span class="format-chip" data-tooltip="Постоянное усиление. Предоставляем нашу экспертизу на постоянной основе.">Поддержка</span>
+                                <span class="format-chip" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
                             </div>
                         </div>
                     </div>
@@ -302,28 +329,38 @@
 
         <!-- Testimonials -->
         <section class="py-32 md:py-40">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid gap-16 lg:grid-cols-3">
-                    <div class="card">
-                        <blockquote class="text-xl text-white">«Очень ценно, когда есть эксперты, способные провести через сложную тему и показать короткий путь. SCULPT помогли нам не проходить весь путь проб и ошибок самостоятельно, а сразу сфокусироваться на работающих инструментах».</blockquote>
-                        <footer class="mt-8">
-                            <p class="text-base text-white font-medium">Нива Фарши</p>
-                            <p class="text-base text-gray-500">Head of Design Guild & Brand Director @ Wix</p>
-                        </footer>
+            <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-center mb-16">Отзывы</h2>
+                <div class="grid gap-8 md:grid-cols-3">
+                    <div class="case-card p-8">
+                        <div class="flex items-center mb-6">
+                            <img class="h-12 w-12 rounded-full object-cover" src="https://placehold.co/48x48/313131/FFFFFF?text=НФ" alt="Нива Фарши">
+                            <div class="ml-4">
+                                <p class="text-base text-white font-medium">Нива Фарши</p>
+                                <p class="text-sm text-gray-500">Head of Design Guild & Brand Director @ Wix</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">«Очень ценно, когда есть эксперты, способные провести через сложную тему и показать короткий путь. SCULPT помогли нам не проходить весь путь проб и ошибок самостоятельно, а сразу сфокусироваться на работающих инструментах».</p>
                     </div>
-                    <div class="card">
-                        <blockquote class="text-xl text-white">«Главное в работе со SCULPT — это надежность. Я могу быть уверена, что задача будет не просто выполнена, а сделана с глубоким погружением в наш контекст. Это тот уровень партнерства, который позволяет делегировать сложные участки и не беспокоиться о результате».</blockquote>
-                        <footer class="mt-8">
-                            <p class="text-base text-white font-medium">Ксения Гаврилова</p>
-                            <p class="text-base text-gray-500">Design Lead @ Avito Avto</p>
-                        </footer>
+                    <div class="case-card p-8">
+                         <div class="flex items-center mb-6">
+                            <img class="h-12 w-12 rounded-full object-cover" src="https://placehold.co/48x48/313131/FFFFFF?text=КГ" alt="Ксения Гаврилова">
+                            <div class="ml-4">
+                                <p class="text-base text-white font-medium">Ксения Гаврилова</p>
+                                <p class="text-sm text-gray-500">Design Lead @ Avito Avto</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">«Главное в работе со SCULPT — это надежность. Я могу быть уверена, что задача будет не просто выполнена, а сделана с глубоким погружением в наш контекст. Это тот уровень партнерства, который позволяет делегировать сложные участки и не беспокоиться о результате».</p>
                     </div>
-                    <div class="card">
-                        <blockquote class="text-xl text-white">«Воркшоп со SCULPT — это не обзорный рассказ про AI, а концентрированная экспертиза. Ребята глубоко понимают не только сами инструменты, но и то, как они встраиваются в реальные дизайн-процессы. Любой вопрос разбирается детально и по существу».</blockquote>
-                        <footer class="mt-8">
-                            <p class="text-base text-white font-medium">Саша Мальцев</p>
-                            <p class="text-base text-gray-500">Design Lead @ Yandex Browser</p>
-                        </footer>
+                    <div class="case-card p-8">
+                         <div class="flex items-center mb-6">
+                            <img class="h-12 w-12 rounded-full object-cover" src="https://placehold.co/48x48/313131/FFFFFF?text=СМ" alt="Саша Мальцев">
+                            <div class="ml-4">
+                                <p class="text-base text-white font-medium">Саша Мальцев</p>
+                                <p class="text-sm text-gray-500">Design Lead @ Yandex Browser</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">«Воркшоп со SCULPT — это не обзорный рассказ про AI, а концентрированная экспертиза. Ребята глубоко понимают не только сами инструменты, но и то, как они встраиваются в реальные дизайн-процессы. Любой вопрос разбирается детально и по существу».</p>
                     </div>
                 </div>
             </div>
