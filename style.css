@@ -1,0 +1,174 @@
+/* General Body & Font Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: #000000;
+    color: #E5E7EB;
+}
+
+.font-serif-header {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 28pt;
+    line-height: 1.2;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* Unified Text Styles */
+h2 {
+    font-size: 2.25rem; /* 36px */
+    line-height: 2.5rem; /* 40px */
+    font-weight: 500;
+    letter-spacing: -0.025em;
+}
+
+h3 {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+    font-weight: 500;
+}
+
+p, .hero-text, .testimonial-text {
+    font-size: 18px;
+    line-height: 1.75rem; /* 28px */
+    color: #AEAEAE;
+}
+
+/* Card Styles */
+.case-card {
+    background-color: #0F0F0F;
+    border-radius: 16px;
+    position: relative;
+    /* overflow: hidden; Removed to allow tooltips to show */
+}
+
+.case-card--interactive {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.case-card--interactive:hover {
+    transform: translateY(-8px);
+    background-color: #1a1a1a;
+}
+
+.case-card--interactive .details-link {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.case-card--interactive:hover .details-link {
+    opacity: 1;
+}
+
+/* Link Styles */
+.styled-link {
+    display: inline-flex;
+    align-items: center;
+    color: #AEAEAE;
+    font-weight: 500;
+    transition: color 0.3s;
+    font-size: 18px;
+}
+
+.styled-link:hover {
+    color: #ffffff;
+}
+
+.styled-link svg {
+    transition: transform 0.3s;
+    margin-left: 8px;
+}
+
+.styled-link:hover svg {
+    transform: translateX(4px);
+}
+
+/* SVG & Logo Styles */
+.svg-logo {
+    filter: brightness(0) invert(1);
+}
+
+/* Blueprint Grid Effect */
+.blueprint-container {
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+}
+
+.blueprint-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: blueprint-scroll 20s linear infinite;
+    z-index: 1;
+}
+
+.blueprint-logo-shape {
+    position: absolute;
+    top: 0;
+    left: 0; /* Aligned to the left edge */
+    width: auto;
+    height: 100%;
+    z-index: 2; /* On top of animation */
+}
+
+@keyframes blueprint-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Format Chips & Tooltips */
+.format-chip {
+    display: inline-block;
+    position: relative;
+    padding: 4px 10px;
+    background-color: #313131;
+    color: #ffffff;
+    font-size: 14px;
+    border-radius: 6px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    cursor: help;
+}
+
+.format-chip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #111111; /* Darker grey for tooltip */
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+    font-weight: 400;
+    width: 280px;
+    text-align: left;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 50; /* High z-index to appear on top */
+    pointer-events: none;
+}
+
+.format-chip:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
