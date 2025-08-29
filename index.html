@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/iliawerner/sculpt_ai/main/favico.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <script>
         // Custom Tailwind CSS configuration
         tailwind.config = {
@@ -23,93 +24,6 @@
             }
         }
     </script>
-    <style>
-        /* Basic styles to replicate external CSS and improve appearance */
-        body {
-            background-color: #0A0A0A;
-            color: #EAEAEA;
-            font-family: 'IBM Plex Sans', sans-serif;
-        }
-        .font-serif-header {
-            font-family: 'IBM Plex Serif', 'serif';
-            font-weight: 500;
-        }
-        .hero-text {
-            font-size: 1.15rem; /* ~18px for better mobile readability */
-            line-height: 1.6;
-            color: #9d9d9d;
-        }
-        @media (min-width: 768px) {
-            .hero-text {
-                font-size: 1.3125rem; /* 21px */
-            }
-        }
-        .case-card {
-            background-color: #141414;
-            border-radius: 16px;
-            border: 1px solid #282828;
-            position: relative;
-            transition: all 0.3s ease;
-            overflow: hidden; /* Prevents content from spilling on resize */
-        }
-        .case-card--interactive:hover {
-            border-color: #555;
-            transform: translateY(-4px);
-        }
-        .styled-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #EAEAEA;
-            transition: color 0.3s ease;
-        }
-        .styled-link:hover {
-            color: #9d9d9d;
-        }
-        .format-chip {
-            background-color: #222;
-            border: 1px solid #333;
-            border-radius: 999px;
-            padding: 6px 14px;
-            font-size: 13px;
-            margin: 4px;
-            cursor: pointer;
-            position: relative;
-            flex-shrink: 0;
-        }
-        /* Tooltip styles */
-        .format-chip[data-tooltip]:hover::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #1a1a1a;
-            color: #fff;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 12px;
-            white-space: pre-wrap;
-            width: 250px;
-            z-index: 10;
-            border: 1px solid #333;
-            text-align: left;
-            line-height: 1.5;
-            pointer-events: none; /* Allows clicks to pass through */
-        }
-        .blueprint-logo-shape {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60%;
-            max-width: 400px;
-            opacity: 0.1;
-        }
-        .svg-logo path {
-            fill: #EAEAEA;
-        }
-    </style>
 </head>
 <body class="antialiased">
 
@@ -377,3 +291,4 @@
 
 </body>
 </html>
+
