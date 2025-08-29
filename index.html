@@ -8,83 +8,182 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="favico.png">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/iliawerner/sculpt_ai/main/favico.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Custom Tailwind CSS configuration
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['IBM Plex Sans', 'sans-serif'],
+                        'serif': ['IBM Plex Serif', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Basic styles to replicate external CSS and improve appearance */
+        body {
+            background-color: #0A0A0A;
+            color: #EAEAEA;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+        .font-serif-header {
+            font-family: 'IBM Plex Serif', 'serif';
+            font-weight: 500;
+        }
+        .hero-text {
+            font-size: 1.15rem; /* ~18px for better mobile readability */
+            line-height: 1.6;
+            color: #9d9d9d;
+        }
+        @media (min-width: 768px) {
+            .hero-text {
+                font-size: 1.3125rem; /* 21px */
+            }
+        }
+        .case-card {
+            background-color: #141414;
+            border-radius: 16px;
+            border: 1px solid #282828;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden; /* Prevents content from spilling on resize */
+        }
+        .case-card--interactive:hover {
+            border-color: #555;
+            transform: translateY(-4px);
+        }
+        .styled-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #EAEAEA;
+            transition: color 0.3s ease;
+        }
+        .styled-link:hover {
+            color: #9d9d9d;
+        }
+        .format-chip {
+            background-color: #222;
+            border: 1px solid #333;
+            border-radius: 999px;
+            padding: 6px 14px;
+            font-size: 13px;
+            margin: 4px;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+        }
+        /* Tooltip styles */
+        .format-chip[data-tooltip]:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            white-space: pre-wrap;
+            width: 250px;
+            z-index: 10;
+            border: 1px solid #333;
+            text-align: left;
+            line-height: 1.5;
+            pointer-events: none; /* Allows clicks to pass through */
+        }
+        .blueprint-logo-shape {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            max-width: 400px;
+            opacity: 0.1;
+        }
+        .svg-logo path {
+            fill: #EAEAEA;
+        }
+    </style>
 </head>
 <body class="antialiased">
 
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="relative min-h-screen">
+        <section class="relative min-h-screen flex">
             <!-- Left content column, constrained -->
-            <div class="relative z-10 max-w-7xl mx-auto">
-                <div class="flex">
-                    <div class="w-full md:w-1/2 flex flex-col justify-between py-10 px-4 sm:px-6 lg:px-8 min-h-screen">
-                        <nav>
-                            <div class="flex items-center space-x-10">
-                                <a href="#solutions" class="text-gray-400 hover:text-white transition text-lg">Решения</a>
-                                <a href="#cases" class="text-gray-400 hover:text-white transition text-lg">Кейсы</a>
-                                <a href="#contact" class="text-gray-400 hover:text-white transition text-lg">Контакты</a>
-                            </div>
-                        </nav>
-                        <div class="max-w-[500px] pb-10">
-                            <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/f66bcfaa0d90ac967267bccc7b5f04d79dd87ca7/logo.svg" alt="SCULPT Logo" class="h-[55px] mb-[50px] svg-logo">
-                            <p class="hero-text font-light">
-                                Проектируем AI-системы, которые приносят в бизнес-процессы ясность и скорость. Чтобы ваша команда принимала верные решения и быстрее создавала отличные продукты.
-                            </p>
+            <div class="relative z-10 max-w-7xl mx-auto flex w-full">
+                <div class="w-full md:w-1/2 flex flex-col justify-center md:justify-between py-10 px-4 sm:px-6 lg:px-8 min-h-screen">
+                    <nav class="absolute top-10 left-4 sm:left-6 lg:left-8">
+                        <div class="flex items-center space-x-6 md:space-x-10">
+                            <a href="#solutions" class="text-gray-400 hover:text-white transition text-lg">Решения</a>
+                            <a href="#cases" class="text-gray-400 hover:text-white transition text-lg">Кейсы</a>
+                            <a href="#contact" class="text-gray-400 hover:text-white transition text-lg">Контакты</a>
                         </div>
+                    </nav>
+                    <div class="max-w-[500px] w-full mx-auto md:mx-0 text-center md:text-left pt-20 md:pt-0 md:pb-10">
+                        <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/f66bcfaa0d90ac967267bccc7b5f04d79dd87ca7/logo.svg" alt="SCULPT Logo" class="h-[55px] mb-[50px] svg-logo inline-block md:inline">
+                        <p class="hero-text font-light">
+                            Проектируем AI-системы, которые приносят в бизнес-процессы ясность и скорость. Чтобы ваша команда принимала верные решения и быстрее создавала отличные продукты.
+                        </p>
                     </div>
+                     <!-- Empty div for spacing, to push content up in flex-col on md+ -->
+                    <div class="hidden md:block"></div>
                 </div>
             </div>
 
-            <!-- Right animation column, full bleed -->
-            <div class="absolute top-0 right-0 h-full w-full md:w-1/2 z-0">
-                <div class="animation-container">
-                    <canvas id="background-canvas"></canvas>
+            <!-- Right animation column, full bleed, hidden on mobile -->
+            <div class="hidden md:block absolute top-0 right-0 h-full w-1/2 z-0">
+                <div class="animation-container h-full w-full">
+                    <canvas id="background-canvas" class="h-full w-full"></canvas>
                     <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/f66bcfaa0d90ac967267bccc7b5f04d79dd87ca7/logo-part.svg" alt="SCULPT Element" class="blueprint-logo-shape svg-logo">
                 </div>
             </div>
         </section>
 
         <!-- Cases Section -->
-        <section id="cases" class="py-32 md:py-40">
+        <section id="cases" class="py-20 md:py-40">
             <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="mb-16 text-left">Кейсы</h2>
+                <h2 class="mb-12 md:mb-16 text-left text-4xl md:text-5xl font-serif-header">Кейсы</h2>
                 
                 <!-- Main Case Card -->
-                <a href="/cases/avito-artdir.html" class="block case-card case-card--interactive" style="max-width: 1020px; height: 334px; background-image: url(https://raw.githubusercontent.com/iliawerner/sculpt_ai/18dc3091c0bf559d7a27b233b8777af13bc7c3ee/avito_case.svg); background-size: contain; background-repeat: no-repeat; background-position: center;">
-                    <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/3394583aabab61c4ae030bd4ee819e9b399d8938/avito_case_comment.png" alt="Avito Case Comment" class="absolute" style="top: 80px; right: 250px; width: 32px; height: 25px;">
-                    <div class="p-10 h-full flex flex-col justify-end relative">
-                        <div class="max-w-[66%]">
-                            <h3 class="font-serif-header" style="font-size: 28px;">AI-система проверки на соответствие дизайн-системе для Авито</h3>
-                            <p class="mt-[18px]">Сократили цикл дизайн-ревью в Авито с 3 дней до 15 минут.</p>
+                <a href="/cases/avito-artdir.html" class="block case-card case-card--interactive md:bg-contain bg-cover bg-center bg-no-repeat" style="background-image: url(https://raw.githubusercontent.com/iliawerner/sculpt_ai/18dc3091c0bf559d7a27b233b8777af13bc7c3ee/avito_case.svg);">
+                    <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/3394583aabab61c4ae030bd4ee819e9b399d8938/avito_case_comment.png" alt="Avito Case Comment" class="absolute hidden md:block" style="top: 80px; right: 250px; width: 32px; height: 25px;">
+                    <div class="p-8 md:p-10 h-full flex flex-col justify-end relative min-h-[340px] md:min-h-[318px]">
+                        <div class="md:max-w-[66%]">
+                            <h3 class="font-serif-header text-2xl">AI-система проверки на соответствие дизайн-системе для Авито</h3>
+                            <p class="mt-4 text-base">Сократили цикл дизайн-ревью в Авито с 3 дней до 15 минут.</p>
                         </div>
-                        <div class="details-link absolute bottom-10 right-10 styled-link">
+                        <div class="details-link mt-8 md:absolute md:bottom-10 md:right-10 styled-link text-base">
                             Читать кейс подробнее
                         </div>
                     </div>
                 </a>
 
                 <!-- Other Cases Grid -->
-                <div class="grid md:grid-cols-3 gap-8 mt-8">
-                    <div class="case-card p-8" style="height: 250px;">
-                        <div class="pt-8">
-                            <h3 class="font-serif-header" style="font-size: 28px;">Студия DELO</h3>
-                            <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Производство графики на 70% быстрее → рост пропускной способности команды без расширения штата.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                    <div class="case-card p-8 flex flex-col justify-center min-h-[200px]">
+                        <div>
+                            <h3 class="font-serif-header text-2xl">Студия DELO</h3>
+                            <p class="mt-4 text-sm leading-relaxed">Производство графики на 70% быстрее → рост пропускной способности команды без расширения штата.</p>
                         </div>
                     </div>
-                    <div class="case-card p-8" style="height: 250px;">
-                        <div class="pt-8">
-                            <h3 class="font-serif-header" style="font-size: 28px;">Яндекс.Браузер</h3>
-                            <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Запуск сайтов для тестов гипотез в 12 раз быстрее: с 4 часов до 20 минут.</p>
+                    <div class="case-card p-8 flex flex-col justify-center min-h-[200px]">
+                        <div>
+                            <h3 class="font-serif-header text-2xl">Яндекс.Браузер</h3>
+                            <p class="mt-4 text-sm leading-relaxed">Запуск сайтов для тестов гипотез в 12 раз быстрее: с 4 часов до 20 минут.</p>
                         </div>
                     </div>
-                    <div class="case-card p-8" style="height: 250px;">
-                        <div class="pt-8">
-                            <h3 class="font-serif-header" style="font-size: 28px;">AI-контент</h3>
-                            <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Создали контент-машину на AI, которая сгенерировала 1.5 млн просмотров.</p>
+                    <div class="case-card p-8 flex flex-col justify-center min-h-[200px]">
+                         <div>
+                            <h3 class="font-serif-header text-2xl">AI-контент</h3>
+                            <p class="mt-4 text-sm leading-relaxed">Создали контент-машину на AI, которая сгенерировала 1.5 млн просмотров.</p>
                         </div>
                     </div>
                 </div>
@@ -92,17 +191,17 @@
         </section>
         
         <!-- AI Solutions -->
-        <section id="solutions" class="py-32 md:py-40">
+        <section id="solutions" class="py-20 md:py-40">
             <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-left">
-                    <h2 class="mb-16">AI-решения</h2>
+                    <h2 class="mb-12 md:mb-16 text-4xl md:text-5xl font-serif-header">AI-решения</h2>
                 </div>
-                <div class="grid gap-8 md:grid-cols-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="case-card p-8">
-                        <div class="pt-8">
-                            <h3 class="font-serif-header" style="font-size: 28px;">Автоматизация арт-дирекшена и ревью</h3>
-                            <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Снимаем рутину с ваших самых дорогих специалистов. Наш AI-пайплайн автоматически проверит дизайн на соответствие гайдлайнам, бизнес-задачам и эвристикам, освобождая часы сеньоров для более важных задач.</p>
-                            <div class="mt-6 flex flex-wrap">
+                        <div class="pt-4 md:pt-8">
+                            <h3 class="font-serif-header text-2xl">Автоматизация арт-дирекшена и ревью</h3>
+                            <p class="mt-4 text-sm leading-relaxed">Снимаем рутину с ваших самых дорогих специалистов. Наш AI-пайплайн автоматически проверит дизайн на соответствие гайдлайнам, бизнес-задачам и эвристикам, освобождая часы сеньоров для более важных задач.</p>
+                            <div class="mt-6 flex flex-wrap -m-1">
                                 <span class="format-chip" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>
                                 <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей. Мы не просто учим, а доводим до первого ощутимого результата.">Внедрение</span>
                                 <span class="format-chip" data-tooltip="Решение «под ключ». Мы полностью берем на себя создание и интеграцию AI-решения в ваши процессы (например, Figma-плагин).">Автоматизация</span>
@@ -112,10 +211,10 @@
                         </div>
                     </div>
                     <div class="case-card p-8">
-                        <div class="pt-8">
-                            <h3 class="font-serif-header" style="font-size: 28px;">Глубинное исследование пользователей с AI</h3>
-                            <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Находим неочевидные инсайты, которые двигают продукт. Проводим и анализируем сотни AI-интервью, чтобы вы получили полную карту болей и потребностей вашей аудитории за дни, а не месяцы.</p>
-                               <div class="mt-6 flex flex-wrap">
+                        <div class="pt-4 md:pt-8">
+                            <h3 class="font-serif-header text-2xl">Глубинное исследование пользователей с AI</h3>
+                            <p class="mt-4 text-sm leading-relaxed">Находим неочевидные инсайты, которые двигают продукт. Проводим и анализируем сотни AI-интервью, чтобы вы получили полную карту болей и потребностей вашей аудитории за дни, а не месяцы.</p>
+                                <div class="mt-6 flex flex-wrap -m-1">
                                 <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей. Мы не просто учим, а доводим до первого ощутимого результата.">Внедрение</span>
                                 <span class="format-chip" data-tooltip="Решение «под ключ». Мы полностью берем на себя создание и интеграцию AI-решения в ваши процессы.">Автоматизация</span>
                                 <span class="format-chip" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
@@ -123,10 +222,10 @@
                         </div>
                     </div>
                     <div class="case-card p-8">
-                        <div class="pt-8">
-                            <h3 class="font-serif-header" style="font-size: 28px;">Стратегическое планирование с AI</h3>
-                            <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Используем AI для анализа трендов, прогнозирования сценариев и выработки стратегии, основанной на данных. Обгоняйте конкурентов, принимая решения быстрее и точнее.</p>
-                               <div class="mt-6 flex flex-wrap">
+                        <div class="pt-4 md:pt-8">
+                            <h3 class="font-serif-header text-2xl">Стратегическое планирование с AI</h3>
+                            <p class="mt-4 text-sm leading-relaxed">Используем AI для анализа трендов, прогнозирования сценариев и выработки стратегии, основанной на данных. Обгоняйте конкурентов, принимая решения быстрее и точнее.</p>
+                                <div class="mt-6 flex flex-wrap -m-1">
                                 <span class="format-chip" data-tooltip="Точка входа. Проанализируем ваши текущие процессы, найдем узкие места и точки роста, где AI даст максимальный экономический эффект.">Аудит</span>
                                 <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>
                                 <span class="format-chip" data-tooltip="Постоянное усиление. Предоставляем нашу экспертизу на постоянной основе.">Поддержка</span>
@@ -135,10 +234,10 @@
                         </div>
                     </div>
                     <div class="case-card p-8">
-                        <div class="pt-8">
-                            <h3 class="font-serif-header" style="font-size: 28px;">AI-ментор для дизайн-команды</h3>
-                            <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">AI-ментор берет на себя оценку навыков, формирует персональные планы развития и помогает младшим специалистам расти быстрее. Вы получаете масштабируемую систему онбординга и экономите самое ценное — время ключевых сотрудников.</p>
-                               <div class="mt-6 flex flex-wrap">
+                        <div class="pt-4 md:pt-8">
+                            <h3 class="font-serif-header text-2xl">AI-ментор для дизайн-команды</h3>
+                            <p class="mt-4 text-sm leading-relaxed">AI-ментор берет на себя оценку навыков, формирует персональные планы развития и помогает младшим специалистам расти быстрее. Вы получаете масштабируемую систему онбординга и экономите самое ценное — время ключевых сотрудников.</p>
+                                <div class="mt-6 flex flex-wrap -m-1">
                                 <span class="format-chip" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>
                                 <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>
                                 <span class="format-chip" data-tooltip="Решение «под ключ». Мы полностью берем на себя создание и интеграцию AI-решения в ваши процессы.">Автоматизация</span>
@@ -147,10 +246,10 @@
                         </div>
                     </div>
                     <div class="case-card p-8">
-                        <div class="pt-8">
-                            <h3 class="font-serif-header" style="font-size: 28px;">Продакшен-ready графика с Generative AI</h3>
-                            <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Научим команду создавать соответствующие бренду, консистентны, готовые к продакшену изображения и видеокреативы. Рекламных баннера, креативы, печатка, иллюстрации, контент для соцсетей. В среднем выходит на 70% быстрее и без потерь в качестве.</p>
-                               <div class="mt-6 flex flex-wrap">
+                        <div class="pt-4 md:pt-8">
+                            <h3 class="font-serif-header text-2xl">Продакшен-ready графика с Generative AI</h3>
+                            <p class="mt-4 text-sm leading-relaxed">Научим команду создавать соответствующие бренду, консистентны, готовые к продакшену изображения и видеокреативы. Рекламных баннера, креативы, печатка, иллюстрации, контент для соцсетей. В среднем выходит на 70% быстрее и без потерь в качестве.</p>
+                                <div class="mt-6 flex flex-wrap -m-1">
                                 <span class="format-chip" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>
                                 <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>
                                 <span class="format-chip" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
@@ -158,10 +257,10 @@
                         </div>
                     </div>
                     <div class="case-card p-8">
-                        <div class="pt-8">
-                            <h3 class="font-serif-header" style="font-size: 28px;">AI-контент-машина для SMM</h3>
-                            <p class="mt-[18px]" style="font-size: 14px; line-height: 1.6;">Предсказуемую система inhouse SMM для больших охватов. Наш подход позволяет с помощью AI анализировать тренды, писать вовлекающие тексты и генерировать визуальный контент для LinkedIn, X и других соцсетей.</p>
-                               <div class="mt-6 flex flex-wrap">
+                        <div class="pt-4 md:pt-8">
+                            <h3 class="font-serif-header text-2xl">AI-контент-машина для SMM</h3>
+                            <p class="mt-4 text-sm leading-relaxed">Предсказуемую система inhouse SMM для больших охватов. Наш подход позволяет с помощью AI анализировать тренды, писать вовлекающие тексты и генерировать визуальный контент для LinkedIn, X и других соцсетей.</p>
+                                <div class="mt-6 flex flex-wrap -m-1">
                                 <span class="format-chip" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>
                                 <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>
                                 <span class="format-chip" data-tooltip="Постоянное усиление. Предоставляем нашу экспертизу на постоянной основе.">Поддержка</span>
@@ -173,56 +272,15 @@
             </div>
         </section>
 
-        <!-- Testimonials -->
-        <!--
-        <section class="py-32 md:py-40">
-            <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-left mb-16">Отзывы</h2>
-                <div class="grid gap-8 md:grid-cols-3">
-                    <div class="case-card p-8">
-                        <div class="flex items-center mb-4">
-                            <img class="rounded-md object-cover" src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/a577f02b88178953e661708c06be49d811462c59/Niv.jpeg" alt="Нива Фарши" style="width: 55px; height: 55px;">
-                            <div class="ml-4">
-                                <p class="text-white font-medium" style="font-size: 14px; line-height: 1.4;">Нива Фарши</p>
-                                <p class="text-gray-500" style="font-size: 14px; line-height: 1.4;">Head of Design Guild & Brand Director @ Wix</p>
-                            </div>
-                        </div>
-                        <p class="testimonial-text" style="font-size: 14px; line-height: 1.6;">Очень ценно, когда есть эксперты, способные провести через сложную тему и показать короткий путь. SCULPT помогли нам не проходить весь путь проб и ошибок самостоятельно, а сразу сфокусироваться на работающих инструментах.</p>
-                    </div>
-                    <div class="case-card p-8">
-                         <div class="flex items-center mb-4">
-                            <img class="rounded-md object-cover" src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/main/Xenia.jpg" alt="Ксения Гаврилова" style="width: 55px; height: 55px;">
-                            <div class="ml-4">
-                                <p class="text-white font-medium" style="font-size: 14px; line-height: 1.4;">Ксения Гаврилова</p>
-                                <p class="text-gray-500" style="font-size: 14px; line-height: 1.4;">Design Lead @ Avito Avto</p>
-                            </div>
-                        </div>
-                        <p class="testimonial-text" style="font-size: 14px; line-height: 1.6;">Главное в работе со SCULPT — это надежность. Я могу быть уверена, что задача будет не просто выполнена, а сделана с глубоким погружением в наш контекст. Это тот уровень партнерства, который позволяет делегировать сложные участки и не беспокоиться о результате.</p>
-                    </div>
-                    <div class="case-card p-8">
-                         <div class="flex items-center mb-4">
-                            <img class="rounded-md object-cover" src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/a577f02b88178953e661708c06be49d811462c59/Sasha.jpg" alt="Саша Мальцев" style="width: 55px; height: 55px;">
-                            <div class="ml-4">
-                                <p class="text-white font-medium" style="font-size: 14px; line-height: 1.4;">Саша Мальцев</p>
-                                <p class="text-gray-500" style="font-size: 14px; line-height: 1.4;">Design Lead @ Yandex Browser</p>
-                            </div>
-                        </div>
-                        <p class="testimonial-text" style="font-size: 14px; line-height: 1.6;">Воркшоп со SCULPT — это не обзорный рассказ про AI, а концентрированная экспертиза. Ребята глубоко понимают не только сами инструменты, но и то, как они встраиваются в реальные дизайн-процессы. Любой вопрос разбирается детально и по существу.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        -->
-
         <!-- CTA Section -->
-        <section id="contact" class="py-32 md:py-40">
+        <section id="contact" class="py-20 md:py-40">
             <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="case-card p-10">
-                    <h2 class="font-serif-header">Покажем, где AI даст максимальный экономический эффект</h2>
-                    <p class="mt-6 text-lg max-w-3xl">
+                <div class="case-card p-8 md:p-10">
+                    <h2 class="font-serif-header text-3xl md:text-4xl">Покажем, где AI даст максимальный экономический эффект</h2>
+                    <p class="mt-6 text-base md:text-lg max-w-3xl">
                         Бесплатный 30-минутный созвон, где мы покажем наши кейсы, и вместе разберем один из ваших текущих процессов — например, дизайн-ревью или создание контента. Найдем узкие места и дадим 2-3 конкретные рекомендации по их оптимизации. Уйдете с первыми шагами для дорожной карты.
                     </p>
-                    <div class="mt-12 flex flex-col sm:flex-row gap-8">
+                    <div class="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-8">
                         <a href="https://calendar.app.google/K4pxXiDKioBSA6gp8" target="_blank" class="styled-link text-lg">
                             Выбрать время в календаре
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -239,19 +297,19 @@
 
     <!-- Footer -->
     <footer class="py-16 px-4 sm:px-6 lg:px-8 text-gray-500">
-        <div class="max-w-7xl mx-auto flex justify-between items-center text-sm">
-            <div class="flex flex-col space-y-2 text-left" style="font-size: 14px;">
-                <p style="font-size: 14px;">Для клиентов из РФ: ИП Камышина Д.Э. (ИНН 772781640947)</p>
-                <p style="font-size: 14px;">Для международных клиентов: DELO STUDIO LTD (UK)</p>
-                 <a href="mailto:hello@sculpt.ai" class="text-gray-400 hover:text-white transition w-fit" style="font-size: 14px;">hello@sculpt.ai</a>
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-y-10 md:gap-y-0">
+            <div class="flex flex-col space-y-2 text-sm items-center md:items-start">
+                <p>Для клиентов из РФ: ИП Камышина Д.Э. (ИНН 772781640947)</p>
+                <p>Для международных клиентов: DELO STUDIO LTD (UK)</p>
+                 <a href="mailto:hello@sculpt.ai" class="text-gray-400 hover:text-white transition w-fit">hello@sculpt.ai</a>
             </div>
-            <div class="text-right" style="font-size: 14px;">
-                <div class="flex justify-end space-x-6">
-                    <a href="#solutions" class="text-gray-400 hover:text-white transition" style="font-size: 14px;">Решения</a>
-                    <a href="#cases" class="text-gray-400 hover:text-white transition" style="font-size: 14px;">Кейсы</a>
-                    <a href="#contact" class="text-gray-400 hover:text-white transition" style="font-size: 14px;">Контакты</a>
+            <div class="text-sm">
+                <div class="flex justify-center md:justify-end space-x-6">
+                    <a href="#solutions" class="text-gray-400 hover:text-white transition">Решения</a>
+                    <a href="#cases" class="text-gray-400 hover:text-white transition">Кейсы</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition">Контакты</a>
                 </div>
-                <p class="mt-8" style="font-size: 14px;">&copy; SCULPT, 2025. Все права защищены.</p>
+                <p class="mt-8">&copy; SCULPT, 2025. Все права защищены.</p>
             </div>
         </div>
     </footer>
@@ -303,7 +361,6 @@
                 function animate(time) {
                     const elapsedTime = (time - startTime) / 1000;
                     shaderMaterial.uniforms.iGlobalAlpha.value = Math.min(1.0, elapsedTime / 6.0);
-                    // Speed increased by another 30% (0.325 * 1.3 = 0.4225)
                     shaderMaterial.uniforms.iTime.value = elapsedTime * 0.4225;
                     renderer.render(scene, camera);
                     requestAnimationFrame(animate);
@@ -311,7 +368,10 @@
                 requestAnimationFrame(animate);
             }
 
-            setupBackgroundShader();
+            // Only run the animation script if it's not a mobile device
+            if (window.matchMedia("(min-width: 768px)").matches) {
+                setupBackgroundShader();
+            }
         });
     </script>
 
