@@ -70,7 +70,6 @@
             <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="mb-12 md:mb-16 text-left text-4xl md:text-5xl font-serif-header">Кейсы</h2>
                 
-                <!-- Main Case Card -->
                 <a href="cases/avito-artdir.html" class="block case-card case-card--interactive md:bg-contain bg-cover bg-center bg-no-repeat" style="background-image: url(https://raw.githubusercontent.com/iliawerner/sculpt_ai/18dc3091c0bf559d7a27b233b8777af13bc7c3ee/avito_case.svg);">
                     <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/3394583aabab61c4ae030bd4ee819e9b399d8938/avito_case_comment.png" alt="Avito Case Comment" class="absolute hidden md:block" style="top: 80px; right: 250px; width: 32px; height: 25px;">
                     <div class="p-8 md:p-10 h-full flex flex-col justify-end relative min-h-[340px] md:min-h-[318px]">
@@ -84,7 +83,6 @@
                     </div>
                 </a>
 
-                <!-- Other Cases Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
                     <div class="case-card p-8 flex flex-col justify-center min-h-[200px]">
                         <div>
@@ -116,12 +114,12 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                    <!-- NEW INFRASTRUCTURE CARD -->
                     <div class="case-card p-8 md:col-span-2">
                         <div class="pt-4 md:pt-8">
                             <h3 class="font-serif-header text-2xl">Безопасная AI-инфраструктура для enterprise</h3>
                             <p class="mt-4 text-sm leading-relaxed">Внедряем AI-инфраструктуру, которая позволяет использовать самые мощные LLM внутри защищённого контура вашей сети. Ваши данные остаются под полным контролем, а команда получает доступ к передовым моделям без компромиссов в безопасности.</p>
                             <div class="mt-8">
+                                <h4 class="font-serif text-xl font-medium text-white mb-6">Три формата внедрения:</h4>
                                 <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6">
                                     <div>
                                         <h5 class="font-semibold text-white">Подключение по API с деперсонализацией</h5>
@@ -236,6 +234,68 @@
                 </div>
             </div>
         </section>
+        
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 md:py-40">
+            <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-left mb-12 md:mb-16">
+                    <h2 class="text-4xl md:text-5xl font-serif-header">Частые вопросы</h2>
+                </div>
+                <div class="faq-container">
+                    <!-- Question 1 -->
+                    <details class="faq-item">
+                        <summary>
+                            <span>Работаете ли вы с RAG?</span>
+                            <svg class="faq-icon h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6" /></svg>
+                        </summary>
+                        <div class="faq-content">
+                            <p>Да, RAG (Retrieval-Augmented Generation) — одна из ключевых технологий в нашей Al-инфраструктуре.</p>
+                            <p class="mt-4">На практике это решает задачу «умного» корпоративного поиска. Вместо того чтобы тратить часы на поиск по базам знаний, сотрудник задает вопрос на естественном языке — например, «Какие требования к новому сотруднику в отделе разработки?» — и мгновенно получает точный ответ со ссылкой на источник. Система полностью учитывает права доступа, поэтому сотрудники видят только ту информацию, которая им разрешена.</p>
+                        </div>
+                    </details>
+                    <!-- Question 2 -->
+                    <details class="faq-item">
+                        <summary>
+                            <span>Какие именно LLM вы используете?</span>
+                             <svg class="faq-icon h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6" /></svg>
+                        </summary>
+                         <div class="faq-content">
+                            <p>Мы придерживаемся прагматичного подхода: выбираем лучшую модель для конкретной задачи и требований безопасности клиента.</p>
+                            <p class="mt-4">Наша инфраструктура позволяет работать в трёх режимах:</p>
+                            <ul class="list-disc list-inside space-y-3 mt-4 text-gray-400">
+                                <li><b>Безопасный доступ к внешним LLM:</b> Вы получаете мощь ведущих мировых моделей (GPT-4o, Gemini, Claude), при этом ваши чувствительные данные не покидают ваш контур благодаря деперсонализации.</li>
+                                <li><b>Управляемое облако (Sculpt Cloud):</b> Мы разворачиваем приватный кластер с мощными моделями в изолированном облачном контейнере.</li>
+                                <li><b>On-premise:</b> Для максимальной безопасности мы разворачиваем всю LLM-инфраструктуру непосредственно на ваших серверах.</li>
+                            </ul>
+                            <p class="mt-4">Такой подход позволяет нам не зависеть от одной модели, а предлагать оптимальное решение, которое отвечает вашим задачам по производительности и безопасности здесь и сейчас.</p>
+                        </div>
+                    </details>
+                     <!-- Question 3 -->
+                    <details class="faq-item">
+                        <summary>
+                            <span>Можете ли вы оказывать услуги по дизайну?</span>
+                             <svg class="faq-icon h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6" /></svg>
+                        </summary>
+                        <div class="faq-content">
+                           <p>Нет, мы не дизайн-студия. Наш продукт — это AI-системы, которые делают вашу дизайн-команду на порядок эффективнее.</p>
+                           <p class="mt-4">Мы не создаем дизайн руками, а внедряем AI-решения, которые снимают рутину с ваших специалистов и ускоряют процессы. Например, мы можем автоматизировать ревью на соответствие дизайн-системе, сократив его с нескольких дней до 15 минут, как в кейсе с Авито. Наша цель — не заменить ваших дизайнеров, а дать им инструменты для кратного роста скорости и качества работы.</p>
+                        </div>
+                    </details>
+                     <!-- Question 4 -->
+                    <details class="faq-item">
+                        <summary>
+                             <span>Как вы создаете AI-агентов и автоматизации?</span>
+                             <svg class="faq-icon h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6" /></svg>
+                        </summary>
+                        <div class="faq-content">
+                            <p>Мы начинаем не с кода, а с бизнес-процесса клиента.</p>
+                            <p class="mt-4">Наша задача — разобраться, где команда теряет время и деньги. Мы картируем процесс (например, дизайн-ревью или создание контента), находим узкие места и только после этого проектируем AI-агента или пайплайн для их автоматизации.</p>
+                            <p class="mt-4">Такой подход гарантирует, что мы продаем не «фичи», а измеримый экономический эффект: сэкономленные часы дорогих специалистов и ускорение результата. В зависимости от требований к производительности и безопасности, техническая реализация может быть на Python или Java.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -311,7 +371,6 @@
                 requestAnimationFrame(animate);
             }
 
-            // Only run the animation script if it's not a mobile device
             if (window.matchMedia("(min-width: 768px)").matches) {
                 setupBackgroundShader();
             }
