@@ -157,3 +157,58 @@ p, .hero-text, .testimonial-text {
     opacity: 1;
     visibility: visible;
 }
+
+/* FAQ Section Styles */
+.faq-item {
+    background-color: #0F0F0F;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: #313131;
+}
+
+.faq-item summary {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 1.25rem; /* 20px */
+    font-weight: 500;
+    color: #ffffff;
+    padding: 24px;
+    cursor: pointer;
+    list-style: none; /* remove default arrow */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none; /* hide default arrow for chrome */
+}
+
+.faq-item .faq-content {
+    padding: 0 24px 24px 24px;
+    color: #AEAEAE;
+    font-size: 18px;
+    line-height: 1.75rem;
+}
+.faq-item .faq-content p, 
+.faq-item .faq-content ul {
+    max-width: 80ch;
+}
+
+
+/* Icon for open/close state */
+.faq-icon {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 16px;
+}
+
+.faq-item[open] > summary .faq-icon {
+    transform: rotate(45deg);
+}
+
