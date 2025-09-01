@@ -1,1 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCULPT — Проектируем AI-системы</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/iliawerner/sculpt_ai/main/favico.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- SEO Hreflang Tags -->
+    <link rel="alternate" hreflang="en" href="https://sculptai.com/" />
+    <link rel="alternate" hreflang="ru" href="https://sculptai.com/ru/" />
+    <link rel="alternate" hreflang="x-default" href="https://sculptai.com/" />
+    
+    <script>
+        // Custom Tailwind CSS configuration
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['IBM Plex Sans', 'sans-serif'],
+                        'serif': ['IBM Plex Serif', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex">
+            <!-- Left content column, constrained -->
+            <div class="relative z-10 max-w-7xl mx-auto flex w-full">
+                <div class="w-full md:w-1/2 flex flex-col justify-center py-10 px-4 sm:px-6 lg:px-8 min-h-screen">
+                    <nav class="absolute top-10 left-4 sm:left-6 lg:left-8">
+                        <div class="flex items-center space-x-6 md:space-x-10">
+                            <a href="#solutions" class="text-gray-400 hover:text-white transition text-lg">Решения</a>
+                            <a href="#cases" class="text-gray-400 hover:text-white transition text-lg">Кейсы</a>
+                            <a href="#contact" class="text-gray-400 hover:text-white transition text-lg">Контакты</a>
+                        </div>
+                    </nav>
+                    <div class="max-w-[500px] w-full mx-auto md:mx-0 text-center md:text-left pt-20 md:pt-0 md:pb-10">
+                        <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/f66bcfaa0d90ac967267bccc7b5f04d79dd87ca7/logo.svg" alt="SCULPT Logo" class="h-[55px] mb-[50px] svg-logo inline-block md:inline">
+                        <p class="hero-text font-light">
+                            Проектируем AI-системы, которые приносят в бизнес-процессы ясность и скорость. Чтобы ваша команда принимала верные решения и быстрее создавала отличные продукты.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right animation column, full bleed, hidden on mobile -->
+            <div class="hidden md:block absolute top-0 right-0 h-full w-1/2 z-0">
+                <div class="animation-container h-full w-full">
+                    <canvas id="background-canvas" class="h-full w-full"></canvas>
+                    <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/f66bcfaa0d90ac967267bccc7b5f04d79dd87ca7/logo-part.svg" alt="SCULPT Element" class="blueprint-logo-shape svg-logo">
+                </div>
+            </div>
+        </section>
+
+        <!-- Cases Section -->
+        <section id="cases" class="py-20 md:py-40">
+            <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="mb-12 md:mb-16 text-left text-4xl md:text-5xl font-serif-header">Кейсы</h2>
+                
+                <!-- Main Case Card -->
+                <a href="./cases/avito-artdir.html" class="block case-card case-card--interactive md:bg-contain bg-cover bg-center bg-no-repeat" style="background-image: url(https://raw.githubusercontent.com/iliawerner/sculpt_ai/18dc3091c0bf559d7a27b233b8777af13bc7c3ee/avito_case.svg);">
+                    <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/3394583aabab61c4ae030bd4ee819e9b399d8938/avito_case_comment.png" alt="Avito Case Comment" class="absolute hidden md:block" style="top: 80px; right: 250px; width: 32px; height: 25px;">
+                    <div class="p-8 md:p-10 h-full flex flex-col justify-end relative min-h-[340px] md:min-h-[318px]">
+                        <div class="md:max-w-[66%]">
+                            <h3 class="font-serif-header text-2xl">AI-система проверки на соответствие дизайн-системе для Авито</h3>
+                            <p class="mt-4 text-base">Сократили цикл дизайн-ревью в Авито с 3 дней до 15 минут.</p>
+                        </div>
+                        <div class="details-link mt-8 md:absolute md:bottom-10 md:right-10 styled-link text-base">
+                            Читать кейс подробнее
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Other Cases Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                    <div class="case-card p-8 flex flex-col justify-center min-h-[200px]">
+                        <div>
+                            <h3 class="font-serif-header text-2xl">Студия DELO</h3>
+                            <p class="mt-4 text-sm leading-relaxed">Производство графики на 70% быстрее → рост пропускной способности команды без расширения штата.</p>
+                        </div>
+                    </div>
+                    <div class="case-card p-8 flex flex-col justify-center min-h-[200px]">
+                        <div>
+                            <h3 class="font-serif-header text-2xl">Яндекс.Браузер</h3>
+                            <p class="mt-4 text-sm leading-relaxed">Запуск сайтов для тестов гипотез в 12 раз быстрее: с 4 часов до 20 минут.</p>
+                        </div>
+                    </div>
+                    <div class="case-card p-8 flex flex-col justify-center min-h-[200px]">
+                        <div>
+                            <h3 class="font-serif-header text-2xl">AI-контент</h3>
+                            <p class="mt-4 text-sm leading-relaxed">Создали контент-машину на AI, которая сгенерировала 1.5 млн просмотров.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- AI Solutions -->
+        <section id="solutions" class="py-20 md:py-40">
+            <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-left">
+                    <h2 class="mb-12 md:mb-16 text-4xl md:text-5xl font-serif-header">AI-решения</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="case-card p-8">
+                        <div class="pt-4 md:pt-8">
+                            <h3 class="font-serif-header text-2xl">Автоматизация арт-дирекшена и ревью</h3>
+                            <p class="mt-4 text-sm leading-relaxed">Снимаем рутину с ваших самых дорогих специалистов. Наш AI-пайплайн автоматически проверит дизайн на соответствие гайдлайнам, бизнес-задачам и эвристикам, освобождая часы сеньоров для более важных задач.</p>
+                            <div class="mt-6 flex flex-wrap -m-1">
+                                <span class="format-chip" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>
+                                <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей. Мы не просто учим, а доводим до первого ощутимого результата.">Внедрение</span>
+                                <span class="format-chip" data-tooltip="Решение «под ключ». Мы полностью берем на себя создание и интеграцию AI-решения в ваши процессы (например, Figma-плагин).">Автоматизация</span>
+                                <span class="format-chip" data-tooltip="Постоянное усиление. Предоставляем нашу экспертизу на постоянной основе. Вы получаете не просто сотрудника, а гибкий внешний AI-отдел.">Поддержка</span>
+                                <span class="format-chip" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-card p-8">
+                        <div class="pt-4 md:pt-8">
+                            <h3 class="font-serif-header text-2xl">Глубинное исследование пользователей с AI</h3>
+                            <p class="mt-4 text-sm leading-relaxed">Находим неочевидные инсайты, которые двигают продукт. Проводим и анализируем сотни AI-интервью, чтобы вы получили полную карту болей и потребностей вашей аудитории за дни, а не месяцы.</p>
+                                <div class="mt-6 flex flex-wrap -m-1">
+                                <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей. Мы не просто учим, а доводим до первого ощутимого результата.">Внедрение</span>
+                                <span class="format-chip" data-tooltip="Решение «под ключ». Мы полностью берем на себя создание и интеграцию AI-решения в ваши процессы.">Автоматизация</span>
+                                <span class="format-chip" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-card p-8">
+                        <div class="pt-4 md:pt-8">
+                            <h3 class="font-serif-header text-2xl">Стратегическое планирование с AI</h3>
+                            <p class="mt-4 text-sm leading-relaxed">Используем AI для анализа трендов, прогнозирования сценариев и выработки стратегии, основанной на данных. Обгоняйте конкурентов, принимая решения быстрее и точнее.</p>
+                                <div class="mt-6 flex flex-wrap -m-1">
+                                <span class="format-chip" data-tooltip="Точка входа. Проанализируем ваши текущие процессы, найдем узкие места и точки роста, где AI даст максимальный экономический эффект.">Аудит</span>
+                                <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>
+                                <span class="format-chip" data-tooltip="Постоянное усиление. Предоставляем нашу экспертизу на постоянной основе.">Поддержка</span>
+                                <span class="format-chip" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-card p-8">
+                        <div class="pt-4 md:pt-8">
+                            <h3 class="font-serif-header text-2xl">AI-ментор для дизайн-команды</h3>
+                            <p class="mt-4 text-sm leading-relaxed">AI-ментор берет на себя оценку навыков, формирует персональные планы развития и помогает младшим специалистам расти быстрее. Вы получаете масштабируемую систему онбординга и экономите самое ценное — время ключевых сотрудников.</p>
+                                <div class="mt-6 flex flex-wrap -m-1">
+                                <span class="format-chip" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>
+                                <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>
+                                <span class="format-chip" data-tooltip="Решение «под ключ». Мы полностью берем на себя создание и интеграцию AI-решения в ваши процессы.">Автоматизация</span>
+                                <span class="format-chip" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-card p-8">
+                        <div class="pt-4 md:pt-8">
+                            <h3 class="font-serif-header text-2xl">Продакшен-ready графика с Generative AI</h3>
+                            <p class="mt-4 text-sm leading-relaxed">Научим команду создавать соответствующие бренду, консистентны, готовые к продакшену изображения и видеокреативы. Рекламных баннера, креативы, печатка, иллюстрации, контент для соцсетей. В среднем выходит на 70% быстрее и без потерь в качестве.</p>
+                                <div class="mt-6 flex flex-wrap -m-1">
+                                <span class="format-chip" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>
+                                <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>
+                                <span class="format-chip" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-card p-8">
+                        <div class="pt-4 md:pt-8">
+                            <h3 class="font-serif-header text-2xl">AI-контент-машина для SMM</h3>
+                            <p class="mt-4 text-sm leading-relaxed">Предсказуемую система inhouse SMM для больших охватов. Наш подход позволяет с помощью AI анализировать тренды, писать вовлекающие тексты и генерировать визуальный контент для LinkedIn, X и других соцсетей.</p>
+                                <div class="mt-6 flex flex-wrap -m-1">
+                                <span class="format-chip" data-tooltip="Передача знаний. Проводим лекции или воркшопы, чтобы ваша команда освоила конкретные AI-инструменты и пайплайны.">Обучение</span>
+                                <span class="format-chip" data-tooltip="Решение вашей задачи. Работаем вместе с вашей командой над вашей реальной задачей.">Внедрение</span>
+                                <span class="format-chip" data-tooltip="Постоянное усиление. Предоставляем нашу экспертизу на постоянной основе.">Поддержка</span>
+                                <span class="format-chip" data-tooltip="Максимальная безопасность и контроль. Разворачиваем и настраиваем все AI-модели и процессы на ваших серверах, обеспечивая полную конфиденциальность данных.">Инфраструктура</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="contact" class="py-20 md:py-40">
+            <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="case-card p-8 md:p-10">
+                    <h2 class="font-serif-header text-3xl md:text-4xl">Покажем, где AI даст максимальный экономический эффект</h2>
+                    <p class="mt-6 text-base md:text-lg max-w-3xl">
+                        Бесплатный 30-минутный созвон, где мы покажем наши кейсы, и вместе разберем один из ваших текущих процессов — например, дизайн-ревью или создание контента. Найдем узкие места и дадим 2-3 конкретные рекомендации по их оптимизации. Уйдете с первыми шагами для дорожной карты.
+                    </p>
+                    <div class="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-8">
+                        <a href="https://calendar.app.google/K4pxXiDKioBSA6gp8" target="_blank" class="styled-link text-lg">
+                            Выбрать время в календаре
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a href="https://t.me/darikamouse" target="_blank" class="styled-link text-lg">
+                            Написать в телеграм
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 px-4 sm:px-6 lg:px-8 text-gray-500">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-y-10 md:gap-y-0">
+            <div class="flex flex-col space-y-2 text-sm items-center md:items-start">
+                <p>Для клиентов из РФ: ИП Камышина Д.Э. (ИНН 772781640947)</p>
+                <p>Для международных клиентов: DELO STUDIO LTD (UK)</p>
+                 <a href="mailto:hello@sculpt.ai" class="text-gray-400 hover:text-white transition w-fit">hello@sculpt.ai</a>
+            </div>
+            <div class="text-sm">
+                <div class="flex justify-center md:justify-end space-x-6">
+                    <a href="#solutions" class="text-gray-400 hover:text-white transition">Решения</a>
+                    <a href="#cases" class="text-gray-400 hover:text-white transition">Кейсы</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition">Контакты</a>
+                </div>
+                <p class="mt-8">&copy; SCULPT, 2025. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- THREE.JS BACKGROUND ---
+            function setupBackgroundShader() {
+                const THREE = window.THREE;
+                if (!THREE) {
+                    console.error("THREE.js not loaded");
+                    return;
+                }
+
+                const container = document.querySelector('.animation-container');
+                const canvas = document.getElementById("background-canvas");
+                if (!canvas || !container) return;
+
+                const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+                const scene = new THREE.Scene();
+                const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
+                camera.position.z = 1;
+
+                const shaderMaterial = new THREE.ShaderMaterial({
+                    uniforms: {
+                        iTime: { value: 0.0 },
+                        iResolution: { value: new THREE.Vector2(container.clientWidth, container.clientHeight) },
+                        iGlobalAlpha: { value: 0.0 }
+                    },
+                    vertexShader: `varying vec2 vUv; void main() { vUv = uv; gl_Position = vec4(position, 1.0); }`,
+                    fragmentShader: `varying vec2 vUv;uniform vec2 iResolution;uniform float iTime;uniform float iGlobalAlpha;vec3 mod289(vec3 x){return x-floor(x*(1./289.))*289.;}vec4 mod289(vec4 x){return x-floor(x*(1./289.))*289.;}vec4 permute(vec4 x){return mod289(((x*34.)+1.)*x);}vec4 taylorInvSqrt(vec4 r){return 1.79284291400159-.85373472095314*r;}float snoise(vec3 v){const vec2 C=vec2(1./6.,1./3.);const vec4 D=vec4(0.,.5,1.,2.);vec3 i=floor(v+dot(v,C.yyy));vec3 x0=v-i+dot(i,C.xxx);vec3 g=step(x0.yzx,x0.xyz);vec3 l=1.-g;vec3 i1=min(g.xyz,l.zxy);vec3 i2=max(g.xyz,l.zxy);vec3 x1=x0-i1+C.xxx;vec3 x2=x0-i2+C.yyy;vec3 x3=x0-D.yyy;i=mod289(i);vec4 p=permute(permute(permute(i.z+vec4(0.,i1.z,i2.z,1.))+i.y+vec4(0.,i1.y,i2.y,1.))+i.x+vec4(0.,i1.x,i2.x,1.));float n_=.142857142857;vec3 ns=n_*D.wyz-D.xzx;vec4 j=p-49.*floor(p*ns.z*ns.z);vec4 x_=floor(j*ns.z);vec4 y_=floor(j-7.*x_);vec4 x=x_*ns.x+ns.yyyy;vec4 y=y_*ns.x+ns.yyyy;vec4 h=1.-abs(x)-abs(y);vec4 b0=vec4(x.xy,y.xy);vec4 b1=vec4(x.zw,y.zw);vec4 s0=floor(b0)*2.+1.;vec4 s1=floor(b1)*2.+1.;vec4 sh=-step(h,vec4(0.));vec4 a0=b0.xzyw+s0.xzyw*sh.xxyy;vec4 a1=b1.xzyw+s1.xzyw*sh.zzww;vec3 p0=vec3(a0.xy,h.x);vec3 p1=vec3(a0.zw,h.y);vec3 p2=vec3(a1.xy,h.z);vec3 p3=vec3(a1.zw,h.w);vec4 norm=taylorInvSqrt(vec4(dot(p0,p0),dot(p1,p1),dot(p2,p2),dot(p3,p3)));p0*=norm.x;p1*=norm.y;p2*=norm.z;p3*=norm.w;vec4 m=max(.6-vec4(dot(x0,x0),dot(x1,x1),dot(x2,x2),dot(x3,x3)),0.);m=m*m;return 42.*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));}void main(){vec2 uv=vUv-.5;uv.x*=iResolution.x/iResolution.y;float d=length(uv);float angle=atan(uv.y,uv.x);float noise_val=snoise(vec3(uv*1.5,iTime*.2));float spiral=angle+(1./(d+.2))*1.;float galaxy=sin(spiral*3.+noise_val*3.)*d;galaxy=smoothstep(.3,.6,galaxy);vec2 flare_uv=vUv;float flare=1./length(flare_uv-vec2(-.2,1.2))*.25;flare=pow(flare,2.2);vec3 color=vec3(galaxy*.9);color+=vec3(flare);color=mix(color,vec3(0.),smoothstep(.4,1.2,d));vec3 final_color=color*iGlobalAlpha;gl_FragColor=vec4(final_color,1.);}`,
+                    transparent: true
+                });
+
+                const plane = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), shaderMaterial);
+                scene.add(plane);
+
+                function resize() {
+                    const width = container.clientWidth;
+                    const height = container.clientHeight;
+                    renderer.setSize(width, height);
+                    shaderMaterial.uniforms.iResolution.value.set(width, height);
+                }
+                
+                window.addEventListener('resize', resize, { passive: true });
+                resize();
+
+                let startTime = performance.now();
+                function animate(time) {
+                    const elapsedTime = (time - startTime) / 1000;
+                    shaderMaterial.uniforms.iGlobalAlpha.value = Math.min(1.0, elapsedTime / 6.0);
+                    shaderMaterial.uniforms.iTime.value = elapsedTime * 0.4225;
+                    renderer.render(scene, camera);
+                    requestAnimationFrame(animate);
+                }
+                requestAnimationFrame(animate);
+            }
+
+            // Only run the animation script if it's not a mobile device
+            if (window.matchMedia("(min-width: 768px)").matches) {
+                setupBackgroundShader();
+            }
+        });
+    </script>
+
+</body>
+</html>
 
