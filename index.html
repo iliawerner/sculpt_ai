@@ -70,7 +70,6 @@
             <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="mb-12 md:mb-16 text-left text-4xl md:text-5xl font-serif-header">Case Studies</h2>
                 
-                <!-- Main Case Card -->
                 <a href="/cases/avito-artdir.html" class="block case-card case-card--interactive md:bg-contain bg-cover bg-center bg-no-repeat" style="background-image: url(https://raw.githubusercontent.com/iliawerner/sculpt_ai/18dc3091c0bf559d7a27b233b8777af13bc7c3ee/avito_case.svg);">
                     <img src="https://raw.githubusercontent.com/iliawerner/sculpt_ai/3394583aabab61c4ae030bd4ee819e9b399d8938/avito_case_comment.png" alt="Avito Case Comment" class="absolute hidden md:block" style="top: 80px; right: 250px; width: 32px; height: 25px;">
                     <div class="p-8 md:p-10 h-full flex flex-col justify-end relative min-h-[340px] md:min-h-[318px]">
@@ -84,7 +83,6 @@
                     </div>
                 </a>
 
-                <!-- Other Cases Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
                     <div class="case-card p-8 flex flex-col justify-center min-h-[200px]">
                         <div>
@@ -116,12 +114,12 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     
-                    <!-- NEW INFRASTRUCTURE CARD -->
                     <div class="case-card p-8 md:col-span-2">
                         <div class="pt-4 md:pt-8">
                             <h3 class="font-serif-header text-2xl">Secure AI Infrastructure for Enterprise</h3>
                             <p class="mt-4 text-sm leading-relaxed">We implement an AI infrastructure that allows the use of the most powerful LLMs within your network's secure perimeter. Your data remains under full control, and your team gets access to cutting-edge models without compromising on security.</p>
                             <div class="mt-8">
+                                <h4 class="font-serif text-xl font-medium text-white mb-6">Three implementation formats:</h4>
                                 <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6">
                                     <div>
                                         <h5 class="font-semibold text-white">API connection with de-identification</h5>
@@ -236,6 +234,68 @@
                 </div>
             </div>
         </section>
+        
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 md:py-40">
+            <div class="max-w-[1020px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-left mb-12 md:mb-16">
+                    <h2 class="text-4xl md:text-5xl font-serif-header">Frequently Asked Questions</h2>
+                </div>
+                <div class="faq-container">
+                    <!-- Question 1 -->
+                    <details class="faq-item">
+                        <summary>
+                            <span>Do you work with RAG?</span>
+                            <svg class="faq-icon h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6" /></svg>
+                        </summary>
+                        <div class="faq-content">
+                            <p>Yes, RAG (Retrieval-Augmented Generation) is one of the key technologies in our AI infrastructure.</p>
+                            <p class="mt-4">In practice, this solves the "smart" corporate search problem. Instead of spending hours searching knowledge bases, an employee asks a question in natural language—for example, "What are the requirements for a new developer?"—and instantly gets a precise answer with a link to the source. The system fully respects access rights, so employees only see the information they are permitted to view.</p>
+                        </div>
+                    </details>
+                    <!-- Question 2 -->
+                    <details class="faq-item">
+                        <summary>
+                            <span>Which specific LLMs do you use?</span>
+                             <svg class="faq-icon h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6" /></svg>
+                        </summary>
+                         <div class="faq-content">
+                            <p>We take a pragmatic approach: we choose the best model for the specific task and the client's security requirements.</p>
+                            <p class="mt-4">Our infrastructure allows for three modes of operation:</p>
+                            <ul class="list-disc list-inside space-y-3 mt-4 text-gray-400">
+                                <li><b>Secure access to external LLMs:</b> You get the power of the world's leading models (GPT-4o, Gemini, Claude), while your sensitive data never leaves your perimeter thanks to de-identification.</li>
+                                <li><b>Managed cloud (Sculpt Cloud):</b> We deploy a private cluster with powerful models in an isolated cloud container.</li>
+                                <li><b>On-premise:</b> For maximum security, we deploy the entire LLM infrastructure directly on your servers.</li>
+                            </ul>
+                            <p class="mt-4">This approach allows us to not depend on a single model but to offer the optimal solution that meets your performance and security needs right here, right now.</p>
+                        </div>
+                    </details>
+                     <!-- Question 3 -->
+                    <details class="faq-item">
+                        <summary>
+                            <span>Can you provide design services?</span>
+                             <svg class="faq-icon h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6" /></svg>
+                        </summary>
+                        <div class="faq-content">
+                           <p>No, we are not a design studio. Our product is AI systems that make your design team an order of magnitude more effective.</p>
+                           <p class="mt-4">We don't create designs ourselves; we implement AI solutions that take the routine off your specialists and speed up processes. For example, we can automate design system compliance reviews, reducing them from days to 15 minutes, as in the Avito case. Our goal is not to replace your designers but to give them the tools for exponential growth in speed and quality.</p>
+                        </div>
+                    </details>
+                     <!-- Question 4 -->
+                    <details class="faq-item">
+                        <summary>
+                             <span>How do you create AI agents and automations?</span>
+                             <svg class="faq-icon h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6" /></svg>
+                        </summary>
+                        <div class="faq-content">
+                            <p>We don't start with code; we start with the client's business process.</p>
+                            <p class="mt-4">Our task is to understand where the team is losing time and money. We map the process (e.g., design review or content creation), find the bottlenecks, and only then design an AI agent or pipeline to automate them.</p>
+                            <p class="mt-4">This approach ensures we are not selling "features" but a measurable economic impact: saved hours of expensive specialists and accelerated results. Depending on performance and security requirements, the technical implementation can be in Python or Java.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -311,7 +371,6 @@
                 requestAnimationFrame(animate);
             }
 
-            // Only run the animation script if it's not a mobile device
             if (window.matchMedia("(min-width: 768px)").matches) {
                 setupBackgroundShader();
             }
